@@ -1,0 +1,441 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>长度换算</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        body {
+            margin: 0px;
+            font-size: 12px;
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+        
+        input,
+        textarea,
+        select {
+            font-size: 12px;
+        }
+        
+        ul,
+        li {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #000000;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+            color: #FF0000;
+        }
+        
+        img {
+            border: 0px;
+        }
+        
+        .main {
+            width: 70%;
+            margin: 0 auto;
+        }
+        
+        .logoBox {
+            height: 100px;
+        }
+        
+        .content {
+            margin: 0px auto;
+        }
+        
+        .navTopTit {
+            height: 26px;
+            line-height: 26px;
+            background-color: #999999;
+        }
+        
+        .navIntro {
+            float: right;
+            padding-right: 20px;
+            color: #FFFFFF;
+        }
+        
+        .navIntro a {
+            color: #FFFFFF;
+        }
+        
+        .navIntro a:hover {
+            color: #FFFFFF;
+            text-decoration: underline;
+        }
+        
+        .box {
+            background-color: #FFFFFF;
+        }
+        
+        .tool {
+            padding: 12px 20px 20px 20px;
+        }
+        
+        .tool input {
+            padding: 1px 5px;
+        }
+        
+        .tool textarea {
+            padding: 5px;
+        }
+        
+        .tool table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        .tool td {
+            border: 1px solid #ccc;
+            text-align: center;
+            padding: 5px;
+        }
+        
+        .tinfo {
+            margin-bottom: 20px;
+            background-color: #EEEEEE;
+            border: 1px solid #ddd;
+            padding: 18px;
+            color: #666666;
+        }
+        
+        .tinfo b {
+            font-size: 14px;
+        }
+        
+        .tname {
+            background-color: #E8E8E8;
+            color: #666666;
+            font-size: 16px;
+            height: 30px;
+        }
+        
+        .tabt {
+            height: 8px;
+        }
+        
+        .tabb {
+            height: 8px;
+            background-color: #E8E8E8;
+        }
+        
+        .tnameb {
+            height: 8px;
+        }
+        
+        .toolbox {
+            text-align: center;
+            margin: 0px auto;
+            line-height: 16px;
+        }
+        
+        .toolbox div {
+            text-align: center;
+        }
+        
+        .tooltime {
+            margin-top: 20px;
+            background-color: #EEEEEE;
+            border: 1px solid #00DDFF;
+            padding: 18px;
+            color: #666666;
+        }
+        
+        .tooltime b {
+            font-size: 14px;
+        }
+        
+        .fright {
+            float: right;
+            text-align: right;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 10px;
+            font-size: 15px;
+        }
+        
+        .f {
+            position: absolute;
+            top: -999px;
+            left: -999px
+        }
+        
+        input[size] {
+            width: 70%;
+            border: 1px solid rgb(116, 116, 116);
+            outline: none;
+            padding: 5px;
+        }
+        
+        input[type=button] {
+            background: rgb(132, 198, 255);
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            color: #fff;
+            margin: 1px;
+            outline: none;
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+        
+        input[type=button]:active {
+            background: rgb(103, 186, 255);
+        }
+        
+        input[value=数据重置] {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="content">
+            <div class="box">
+                <div class="tool">
+                    <div class="tinfo"><b>长度换算：</b> 可实现公里(km)、米(m)、分米(dm)、厘米(cm)、里、丈、尺、寸、分、厘、海里(nmi)、英寻、英里、弗隆(fur)、码(yd)、英尺(ft)、英寸(in)、毫米(mm)、微米(um)间的互转互换。
+                    </div>
+                    <script language="javascript" type="text/javascript">
+                        function LENGTH_MEASURES() {
+                            this.mKilometer = 1000
+                            this.mMeter = 1
+                            this.mDecimeter = 0.1
+                            this.mCentimeter = 0.01
+                            this.mMillimeter = 0.001
+                            this.mMicronmeter = 0.000001
+                            this.mLimeter = 500
+                            this.mZhangmeter = 10 / 3
+                            this.mChimeter = 1 / 3
+                            this.mCunmeter = 1 / 30
+                            this.mFenmeter = 1 / 300
+                            this.mmLimeter = 1 / 3000
+                            this.engFoot = 0.3048
+                            this.engMile = 5280 * this.engFoot
+                            this.engFurlong = 660 * this.engFoot
+                            this.engYard = 3 * this.engFoot
+                            this.engInch = this.engFoot / 12
+                            this.nautMile = 1852
+                            this.nautFathom = 6 * this.engFoot
+                        }
+                        var length_data = new LENGTH_MEASURES();
+
+                        function checkNum(str) {
+                            for (var i = 0; i < str.length; i++) {
+                                var ch = str.substring(i, i + 1)
+                                if (ch != "." && ch != "+" && ch != "-" && ch != "e" && ch != "E" && (ch < "0" || ch > "9")) {
+                                    alert("请输入有效的数字");
+                                    return false;
+                                }
+                            }
+                            return true
+                        }
+
+                        function normalize(what, digits) {
+                            var str = "" + what;
+                            var pp = Math.max(str.lastIndexOf("+"), str.lastIndexOf("-"));
+                            var idot = str.indexOf(".");
+                            if (idot >= 1) {
+                                var ee = (pp > 0) ? str.substring(pp - 1, str.length) : "";
+                                digits += idot;
+                                if (digits >= str.length)
+                                    return str;
+                                if (pp > 0 && digits >= pp)
+                                    digits -= pp;
+                                var c = eval(str.charAt(digits));
+                                var ipos = digits - 1;
+                                if (c >= 5) {
+                                    while (str.charAt(ipos) == "9")
+                                        ipos--;
+                                    if (str.charAt(ipos) == ".") {
+                                        var nc = eval(str.substring(0, idot)) + 1;
+                                        if (nc == 10 && ee.length > 0) {
+                                            nc = 1;
+                                            ee = "e" + (eval(ee.substring(1, ee.length)) + 1);
+                                        }
+                                        return "" + nc + ee;
+                                    }
+                                    return str.substring(0, ipos) + (eval(str.charAt(ipos)) + 1) + ee;
+                                } else
+                                    var ret = str.substring(0, digits) + ee;
+                                for (var i = 0; i < ret.length; i++)
+                                    if (ret.charAt(i) > "0" && ret.charAt(i) <= "9")
+                                        return ret;
+                                return str;
+                            }
+                            return str;
+                        }
+
+                        function compute(obj, val, data) {
+                            if (obj[val].value) {
+                                var uval = 0;
+                                uval = obj[val].value * data[val];
+                                if ((uval >= 0) && (obj[val].value.indexOf("-") != -1)) {
+                                    uval = -uval;
+                                }
+                                for (var i in data)
+                                    obj[i].value = normalize(uval / data[i], 8);
+                            }
+                        }
+
+                        function resetValues(form, data) {
+                            for (var i in data)
+                                form[i].value = "";
+                        }
+
+                        function resetAll(form) {
+                            resetValues(form, length_data);
+                        }
+                    </script>
+                    <div class="toolbox">
+                        <form action="">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td colspan=4 class="tname"><b>长 度 换 算</b></td>
+                                    </tr>
+                                    <TR>
+                                        <TD>公里(km)</TD>
+                                        <TD>
+                                            <INPUT size=15 name=mKilometer>
+                                            <INPUT onclick="if (checkNum(mKilometer.value)) compute(this.form,mKilometer.name,length_data)" type=button value=换算 name=mKilometer_bt>
+                                        </TD>
+                                        <TD>米(m)</TD>
+                                        <TD>
+                                            <INPUT size=15 name=mMeter>
+                                            <INPUT onclick="if (checkNum(mMeter.value)) compute(this.form,mMeter.name,length_data)" type=button value=换算 name=mMeter_bt>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD>分米(dm)</TD>
+                                        <TD>
+                                            <INPUT size=15 name=mDecimeter>
+                                            <INPUT onclick="if (checkNum(mDecimeter.value)) compute(this.form,mDecimeter.name,length_data)" type=button value=换算 name=mDecimeter_bt>
+                                        </TD>
+                                        <TD>厘米(cm)</TD>
+                                        <TD>
+                                            <INPUT size=15 name=mCentimeter>
+                                            <INPUT onclick="if (checkNum(mCentimeter.value)) compute(this.form,mCentimeter.name,length_data)" type=button value=换算 name=mCentimeter_bt>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD>毫米(mm)</TD>
+                                        <TD>
+                                            <INPUT size=15 name=mMillimeter>
+                                            <INPUT onclick="if (checkNum(mMillimeter.value)) compute(this.form,mMillimeter.name,length_data)" type=button value=换算 name=mMillimeter_bt>
+                                        </TD>
+                                        <TD>微米(um)</TD>
+                                        <TD>
+                                            <INPUT size=15 name=mMicronmeter>
+                                            <INPUT onclick="if (checkNum(mMicronmeter.value)) compute(this.form,mMicronmeter.name,length_data)" type=button value=换算 name=mMicronmeter_bt>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD>里</TD>
+                                        <TD>
+                                            <INPUT size=15 name=mLimeter>
+                                            <INPUT onclick="if (checkNum(mLimeter.value)) compute(this.form,mLimeter.name,length_data)" type=button value=换算 name=mLimeter_bt>
+                                        </TD>
+                                        <TD>丈</TD>
+                                        <TD>
+                                            <INPUT size=15 name=mZhangmeter>
+                                            <INPUT onclick="if (checkNum(mZhangmeter.value)) compute(this.form,mZhangmeter.name,length_data)" type=button value=换算 name=mZhangmeter_bt>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD>尺</TD>
+                                        <TD>
+                                            <INPUT size=15 name=mChimeter>
+                                            <INPUT onclick="if (checkNum(mChimeter.value)) compute(this.form,mChimeter.name,length_data)" type=button value=换算 name=mChimeter_bt>
+                                        </TD>
+                                        <TD>寸</TD>
+                                        <TD>
+                                            <INPUT size=15 name=mCunmeter>
+                                            <INPUT onclick="if (checkNum(mCunmeter.value)) compute(this.form,mCunmeter.name,length_data)" type=button value=换算 name=mCunmeter_bt>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD>分</TD>
+                                        <TD>
+                                            <INPUT size=15 name=mFenmeter>
+                                            <INPUT onclick="if (checkNum(mFenmeter.value)) compute(this.form,mFenmeter.name,length_data)" type=button value=换算 name=mFenmeter_bt>
+                                        </TD>
+                                        <TD>厘</TD>
+                                        <TD>
+                                            <INPUT size=15 name=mmLimeter>
+                                            <INPUT onclick="if (checkNum(mmLimeter.value)) compute(this.form,mmLimeter.name,length_data)" type=button value=换算 name=mmLimeter_bt>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD>海里(nmi)</TD>
+                                        <TD>
+                                            <INPUT size=15 name=nautMile>
+                                            <INPUT onclick="if (checkNum(nautMile.value)) compute(this.form,nautMile.name,length_data)" type=button value=换算 name=nautMile_bt>
+                                        </TD>
+                                        <TD>英寻</TD>
+                                        <TD>
+                                            <INPUT size=15 name=nautFathom>
+                                            <INPUT onclick="if (checkNum(nautFathom.value)) compute(this.form,nautFathom.name,length_data)" type=button value=换算 name=nautFathom_bt>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD>英里(mi)</TD>
+                                        <TD>
+                                            <INPUT size=15 name=engMile>
+                                            <INPUT onclick="if (checkNum(engMile.value)) compute(this.form,engMile.name,length_data)" type=button value=换算 name=engMile_bt>
+                                        </TD>
+                                        <TD>弗隆(fur)</TD>
+                                        <TD>
+                                            <INPUT size=15 name=engFurlong>
+                                            <INPUT onclick="if (checkNum(engFurlong.value)) compute(this.form,engFurlong.name,length_data)" type=button value=换算 name=engFurlong_bt>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD>码(yd)</TD>
+                                        <TD>
+                                            <INPUT size=15 name=engYard>
+                                            <INPUT onclick="if (checkNum(engYard.value)) compute(this.form,engYard.name,length_data)" type=button value=换算 name=engYard_bt>
+                                        </TD>
+                                        <TD>英尺(ft)</TD>
+                                        <TD>
+                                            <INPUT size=15 name=engFoot>
+                                            <INPUT onclick="if (checkNum(engFoot.value)) compute(this.form,engFoot.name,length_data)" type=button value=换算 name=engFoot_bt>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD>英寸(in)</TD>
+                                        <TD>
+                                            <INPUT size=15 name=engInch>
+                                            <INPUT onclick="if (checkNum(engInch.value)) compute(this.form,engInch.name,length_data)" type=button value=换算 name=engInch_bt>
+                                        </TD>
+                                        <TD colSpan=2>
+                                            <INPUT onclick=resetAll(this.form) type=button value=数据重置 name=res7>
+                                        </TD>
+                                    </TR>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p><a style="text-decoration: none;color: #000" href="http://loveconvert.com" target="_blank">友情链接：Loveconvert</a></p>
+        </div>
+</body>
+
+</html>

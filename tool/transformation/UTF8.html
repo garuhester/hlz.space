@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>UTF8转换</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        body {
+            margin: 0px;
+            font-size: 12px;
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+        
+        input,
+        textarea,
+        select {
+            font-size: 12px;
+        }
+        
+        ul,
+        li {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #000000;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+            color: #FF0000;
+        }
+        
+        img {
+            border: 0px;
+        }
+        
+        .main {
+            width: 70%;
+            margin: 0 auto;
+        }
+        
+        .logoBox {
+            height: 100px;
+        }
+        
+        .content {
+            margin: 0px auto;
+        }
+        
+        .navTopTit {
+            height: 26px;
+            line-height: 26px;
+            background-color: #999999;
+        }
+        
+        .navIntro {
+            float: right;
+            padding-right: 20px;
+            color: #FFFFFF;
+        }
+        
+        .navIntro a {
+            color: #FFFFFF;
+        }
+        
+        .navIntro a:hover {
+            color: #FFFFFF;
+            text-decoration: underline;
+        }
+        
+        .box {
+            background-color: #FFFFFF;
+        }
+        
+        .tool {
+            padding: 12px 20px 20px 20px;
+        }
+        
+        .tool input {
+            padding: 1px 5px;
+        }
+        
+        .tool textarea {
+            padding: 5px;
+        }
+        
+        .tool table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        .tool td {
+            border: 1px solid #ccc;
+            text-align: center;
+            padding: 5px;
+        }
+        
+        .tinfo {
+            margin-bottom: 20px;
+            background-color: #EEEEEE;
+            border: 1px solid #ddd;
+            padding: 18px;
+            color: #666666;
+        }
+        
+        .tinfo b {
+            font-size: 14px;
+        }
+        
+        .tname {
+            background-color: #E8E8E8;
+            color: #666666;
+            font-size: 16px;
+            height: 30px;
+        }
+        
+        .tabt {
+            height: 8px;
+        }
+        
+        .tabb {
+            height: 8px;
+            background-color: #E8E8E8;
+        }
+        
+        .tnameb {
+            height: 8px;
+        }
+        
+        .toolbox {
+            text-align: center;
+            margin: 0px auto;
+            line-height: 16px;
+        }
+        
+        .toolbox div {
+            text-align: center;
+        }
+        
+        .tooltime {
+            margin-top: 20px;
+            background-color: #EEEEEE;
+            border: 1px solid #00DDFF;
+            padding: 18px;
+            color: #666666;
+        }
+        
+        .tooltime b {
+            font-size: 14px;
+        }
+        
+        .fright {
+            float: right;
+            text-align: right;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 10px;
+            font-size: 15px;
+        }
+        
+        .f {
+            position: absolute;
+            top: -999px;
+            left: -999px
+        }
+        
+        input[size] {
+            width: 70%;
+            border: 1px solid rgb(116, 116, 116);
+            outline: none;
+            padding: 5px;
+        }
+        
+        input[type=button] {
+            background: rgb(132, 198, 255);
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            color: #fff;
+            margin: 1px;
+            outline: none;
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+        
+        input[type=button]:active {
+            background: rgb(103, 186, 255);
+        }
+        
+        input[value=数据重置] {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="content">
+            <div class="box">
+                <div class="tool">
+                    <div class="tinfo"><b>UTF8转换：</b> 可实现汉字转UTF8字符与UTF8字符还原汉字的功能。
+                    </div>
+                    <script language="javascript" type="text/javascript">
+                        var mode = "zhuan";
+
+                        function encode(obj) {
+                            obj.value = obj.value.replace(/[^\u0000-\u00FF]/g, function($0) {
+                                return escape($0).replace(/(%u)(\w{4})/gi, "&#x$2;")
+                            });
+                        }
+
+                        function unencode(obj) {
+                            obj.value = unescape(obj.value.replace(/&#x/g, '%u').replace(/;/g, ''));
+                        }
+                    </script>
+                    <div class="toolbox">
+                        <form action="">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="tname"><b>UTF8 转 换</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>请输入要转换的汉字内容或要还原的UTF8字符:</td>
+                                    </tr>
+                                    <tr>
+                                        <td><textarea cols=88 rows=10 id=code></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type=button onclick=encode(code) value=转换> <input type=button onclick=unencode(code) value=还原></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p><a style="text-decoration: none;color: #000" href="http://loveconvert.com" target="_blank">友情链接：Loveconvert</a></p>
+        </div>
+    </div>
+</body>
+
+</html>

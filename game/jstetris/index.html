@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7">
+    <title>Js俄罗斯方块</title>
+    <meta http-equiv="Content-Type" content="text/html;	charset=utf-8">
+    <link href="tetris.css" rel="stylesheet" type="text/css">
+    <link href="tetris.ico" rel="shortcut icon">
+    <script type="text/javascript" src="tetris.js"></script>
+    <style type="text/css">
+    #tetris {
+        margin: 0 auto;
+    }
+    </style>
+</head>
+
+<body>
+  <!-- JiaThis Button BEGIN -->
+            <script type="text/javascript">
+            var jiathis_config = {data_track_clickback:'true'};
+            </script>
+            <script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0&amp;uid=2140259" charset="utf-8"></script>
+            <!-- JiaThis Button END -->
+    <table style="width: 100%; height: 100%;margin-top: 100px" cellspacing="0" cellpadding="0">
+        <tr>
+            <td style="vertical-align: middle;">
+                <div id="tetris">
+                    <div class="left">
+                        <h1>Js俄罗斯方块</h1>
+                        <div class="menu">
+                            <div><a href="javascript:void(0)" id="tetris-menu-start">新游戏</a></div>
+                            <div id="tetris-pause">
+                                <a href="javascript:void(0)" id="tetris-menu-pause">暂停</a>
+                            </div>
+                            <div style="display: none;" id="tetris-resume">
+                                <a href="javascript:void(0)" id="tetris-menu-resume">继续</a>
+                            </div>
+                            <div><a href="javascript:void(0)" id="tetris-menu-highscores">高分榜</a></div>
+                            <div><a href="javascript:void(0)" id="tetris-menu-help">关于</a></div>
+                        </div>
+                        <div id="tetris-nextpuzzle"></div>
+                        <div id="tetris-gameover">游戏结束</div>
+                        <div id="tetris-keys">
+                            <div class="h5">操作:</div>
+                            <table cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td>旋转:</td>
+                                    <td></td>
+                                    <td><img src="key-up.gif" width="14" height="14" alt=""></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>移动:</td>
+                                    <td><img src="key-left.gif" width="14" height="14" alt=""></td>
+                                    <td><img src="key-down.gif" width="14" height="14" alt=""></td>
+                                    <td><img src="key-right.gif" width="14" height="14" alt=""></td>
+                                </tr>
+                                <tr>
+                                    <td>下落:</td>
+                                    <td colspan="3">
+                                        <img src="key-space.gif" width="44" height="13" alt="">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="stats">
+                            <div class="h5">统计:</div>
+                            <table cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td class="level">关卡:</td>
+                                    <td><span id="tetris-stats-level">1</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="score">分数:</td>
+                                    <td><span id="tetris-stats-score">0</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="lines">消除行数:</td>
+                                    <td><span id="tetris-stats-lines">0</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="apm">APM:</td>
+                                    <td><span id="tetris-stats-apm">0</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="time">时间:</td>
+                                    <td><span id="tetris-stats-time">0</span></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="left-border"></div>
+                    <div id="tetris-area">
+                        <div class="grid1"></div>
+                        <div class="grid2"></div>
+                        <div class="grid3"></div>
+                        <div class="grid4"></div>
+                        <div class="grid5"></div>
+                        <div class="grid6"></div>
+                    </div>
+                    <div id="tetris-help" class="window">
+                        <div class="top">
+                            关于 <span id="tetris-help-close" class="close">x</span>
+                        </div>
+                        <div class="content" style="margin-top:	1em;">
+                            <div style="margin-top:	1em;">
+                                <div>这是一个js制作的俄罗斯方块</div>
+                                <br>
+                                <div>大家好，我是小胡</div>
+                                <div>个人主页: <a href="http://hlz.space" target="_blank">hlz.space</a></div>
+                                <div>个人服务网站: <a href="http://loveconvert.com" target="_blank">www.loveconvert.com</a></div>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tetris-highscores" class="window">
+                        <div class="top">
+                            高分榜 <span id="tetris-highscores-close" class="close">x</span>
+                        </div>
+                        <div class="content">
+                            <div id="tetris-highscores-content"></div>
+                            <br> 说明: 游戏的成绩保存在浏览器的cookie中，只会显示在你的电脑上
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div style="text-align:center;margin-top: 50px;font-size: 15px">
+        <p><a style="text-decoration: none;color: #000" href="http://loveconvert.com" target="_blank">友情链接：Loveconvert</a></p>
+    </div>
+    <script type="text/javascript">
+    var tetris = new Tetris();
+    tetris.unit = 14;
+    tetris.areaX = 12;
+    tetris.areaY = 22;
+    </script>
+</body>
+
+</html>

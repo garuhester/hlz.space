@@ -1,0 +1,405 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>重量换算</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        body {
+            margin: 0px;
+            font-size: 12px;
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+        
+        input,
+        textarea,
+        select {
+            font-size: 12px;
+        }
+        
+        ul,
+        li {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #000000;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+            color: #FF0000;
+        }
+        
+        img {
+            border: 0px;
+        }
+        
+        .main {
+            width: 70%;
+            margin: 0 auto;
+        }
+        
+        .logoBox {
+            height: 100px;
+        }
+        
+        .content {
+            margin: 0px auto;
+        }
+        
+        .navTopTit {
+            height: 26px;
+            line-height: 26px;
+            background-color: #999999;
+        }
+        
+        .navIntro {
+            float: right;
+            padding-right: 20px;
+            color: #FFFFFF;
+        }
+        
+        .navIntro a {
+            color: #FFFFFF;
+        }
+        
+        .navIntro a:hover {
+            color: #FFFFFF;
+            text-decoration: underline;
+        }
+        
+        .box {
+            background-color: #FFFFFF;
+        }
+        
+        .tool {
+            padding: 12px 20px 20px 20px;
+        }
+        
+        .tool input {
+            padding: 1px 5px;
+        }
+        
+        .tool textarea {
+            padding: 5px;
+        }
+        
+        .tool table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        .tool td {
+            border: 1px solid #ccc;
+            text-align: center;
+            padding: 5px;
+        }
+        
+        .tinfo {
+            margin-bottom: 20px;
+            background-color: #EEEEEE;
+            border: 1px solid #ddd;
+            padding: 18px;
+            color: #666666;
+        }
+        
+        .tinfo b {
+            font-size: 14px;
+        }
+        
+        .tname {
+            background-color: #E8E8E8;
+            color: #666666;
+            font-size: 16px;
+            height: 30px;
+        }
+        
+        .tabt {
+            height: 8px;
+        }
+        
+        .tabb {
+            height: 8px;
+            background-color: #E8E8E8;
+        }
+        
+        .tnameb {
+            height: 8px;
+        }
+        
+        .toolbox {
+            text-align: center;
+            margin: 0px auto;
+            line-height: 16px;
+        }
+        
+        .toolbox div {
+            text-align: center;
+        }
+        
+        .tooltime {
+            margin-top: 20px;
+            background-color: #EEEEEE;
+            border: 1px solid #00DDFF;
+            padding: 18px;
+            color: #666666;
+        }
+        
+        .tooltime b {
+            font-size: 14px;
+        }
+        
+        .fright {
+            float: right;
+            text-align: right;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 10px;
+            font-size: 15px;
+        }
+        
+        .f {
+            position: absolute;
+            top: -999px;
+            left: -999px
+        }
+        
+        input[size] {
+            width: 70%;
+            border: 1px solid rgb(116, 116, 116);
+            outline: none;
+            padding: 5px;
+        }
+        
+        input[type=button] {
+            background: rgb(132, 198, 255);
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            color: #fff;
+            margin: 1px;
+            outline: none;
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+        
+        input[type=button]:active {
+            background: rgb(103, 186, 255);
+        }
+        
+        input[value=数据重置] {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="content">
+            <div class="box">
+                <div class="tool">
+                    <div class="tinfo"><b>重量换算：</b> 可实现吨(Tonne)、公斤(Kilogram)、克(Gram)、毫克(Milligram)、市斤、担、两、钱、磅(Pound)、盎司(Ounce)、英钱(PennyWeight)、格令(Grain)、长吨(British long ton)、短吨(US short ton)、英担(British long hundredweight)、美担(US short hundredweight)、英石(Stone)、打兰(Dram)间的互转互换。
+                    </div>
+                    <script language="javascript" type="text/javascript">
+                        function WEIGHT_MEASURES() {
+                            this.mton = 1000
+                            this.mkilogram = 1
+                            this.mgram = 0.001
+                            this.mmilligram = 0.000001
+                            this.cjin = 0.5
+                            this.cdan = 50
+                            this.cliang = 0.05
+                            this.cqian = 0.005
+                            this.avdppound = 0.45359237
+                            this.briton = 2240 * this.avdppound
+                            this.uston = 2000 * this.avdppound
+                            this.bricwt = 112 * this.avdppound
+                            this.uscwt = 100 * this.avdppound
+                            this.bristone = 14 * this.avdppound
+                            this.avdpounce = this.avdppound / 16
+                            this.avdpdram = this.avdppound / 256
+                            this.avdpgrain = this.avdppound / 7000
+                            this.troypound = 5760 * this.avdpgrain
+                            this.troyounce = 480 * this.avdpgrain
+                            this.troydwt = 24 * this.avdpgrain
+                            this.troygrain = this.avdpgrain
+                        }
+                        var weight_data = new WEIGHT_MEASURES();
+
+
+                        function checkNum(str) {
+                            for (var i = 0; i < str.length; i++) {
+                                var ch = str.substring(i, i + 1)
+                                if (ch != "." && ch != "+" && ch != "-" && ch != "e" && ch != "E" && (ch < "0" || ch > "9")) {
+                                    alert("请输入有效的数字");
+                                    return false;
+                                }
+                            }
+                            return true
+                        }
+
+                        function normalize(what, digits) {
+                            var str = "" + what;
+                            var pp = Math.max(str.lastIndexOf("+"), str.lastIndexOf("-"));
+                            var idot = str.indexOf(".");
+                            if (idot >= 1) {
+                                var ee = (pp > 0) ? str.substring(pp - 1, str.length) : "";
+                                digits += idot;
+                                if (digits >= str.length)
+                                    return str;
+                                if (pp > 0 && digits >= pp)
+                                    digits -= pp;
+                                var c = eval(str.charAt(digits));
+                                var ipos = digits - 1;
+                                if (c >= 5) {
+                                    while (str.charAt(ipos) == "9")
+                                        ipos--;
+                                    if (str.charAt(ipos) == ".") {
+                                        var nc = eval(str.substring(0, idot)) + 1;
+                                        if (nc == 10 && ee.length > 0) {
+                                            nc = 1;
+                                            ee = "e" + (eval(ee.substring(1, ee.length)) + 1);
+                                        }
+                                        return "" + nc + ee;
+                                    }
+                                    return str.substring(0, ipos) + (eval(str.charAt(ipos)) + 1) + ee;
+                                } else
+                                    var ret = str.substring(0, digits) + ee;
+                                for (var i = 0; i < ret.length; i++)
+                                    if (ret.charAt(i) > "0" && ret.charAt(i) <= "9")
+                                        return ret;
+                                return str;
+                            }
+                            return str;
+                        }
+
+                        function compute(obj, val, data) {
+                            if (obj[val].value) {
+                                var uval = 0;
+                                uval = obj[val].value * data[val];
+                                if ((uval >= 0) && (obj[val].value.indexOf("-") != -1)) {
+                                    uval = -uval;
+                                }
+                                for (var i in data)
+                                    obj[i].value = normalize(uval / data[i], 8);
+                            }
+                        }
+
+
+                        function resetValues(form, data) {
+                            for (var i in data)
+                                form[i].value = "";
+                        }
+
+                        function resetAll(form) {
+                            resetValues(form, weight_data);
+                        }
+                    </script>
+                    <div class="toolbox">
+                        <form action="">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td colspan=4 class="tname"><b>重 量 换 算</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan=4><b>公 制</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>吨</td>
+                                        <td><input size=12 name=mton> <input onclick="if (checkNum(mton.value)) compute(this.form,mton.name,weight_data)" type=button value=换算 name=mton_bt></td>
+                                        <td>公斤(kg)</td>
+                                        <td><input size=12 name=mkilogram> <input onclick="if (checkNum(mkilogram.value)) compute(this.form,mkilogram.name,weight_data)" type=button value=换算 name=mkilogram_bt></td>
+                                    </tr>
+                                    <tr>
+                                        <td>克(g)</td>
+                                        <td><input size=12 name=mgram> <input onclick="if (checkNum(mgram.value)) compute(this.form,mgram.name,weight_data)" type=button value=换算 name=mgram_bt></td>
+                                        <td>毫克(mg)</td>
+                                        <td><input size=12 name=mmilligram> <input onclick="if (checkNum(mmilligram.value)) compute(this.form,mmilligram.name,weight_data)" type=button value=换算 name=mmilligram_bt></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan=4><b>市 制</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>市斤</td>
+                                        <td><input size=12 name=cjin> <input onclick="if (checkNum(cjin.value)) compute(this.form,cjin.name,weight_data)" type=button value=换算 name=cjin_bt></td>
+                                        <td>担</td>
+                                        <td><input size=12 name=cdan> <input onclick="if (checkNum(cdan.value)) compute(this.form,cdan.name,weight_data)" type=button value=换算 name=cdan_bt></td>
+                                    </tr>
+                                    <tr>
+                                        <td>两</td>
+                                        <td><input size=12 name=cliang> <input onclick="if (checkNum(cliang.value)) compute(this.form,cliang.name,weight_data)" type=button value=换算 name=cliang_bt></td>
+                                        <td>钱</td>
+                                        <td><input size=12 name=cqian> <input onclick="if (checkNum(cqian.value)) compute(this.form,cqian.name,weight_data)" type=button value=换算 name=cqian_bt></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan=4><b>金 衡 制</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>金衡磅(lb t)</td>
+                                        <td><input size=12 name=troypound> <input onclick="if (checkNum(troypound.value)) compute(this.form,troypound.name,weight_data)" type=button value=换算 name=troypound_bt></td>
+                                        <td>金衡盎司(oz t)</td>
+                                        <td><input size=12 name=troyounce> <input onclick="if (checkNum(troyounce.value)) compute(this.form,troyounce.name,weight_data)" type=button value=换算 name=troyounce_bt></td>
+                                    </tr>
+                                    <tr>
+                                        <td>英钱(dwt)</td>
+                                        <td><input size=12 name=troydwt> <input onclick="if (checkNum(troydwt.value)) compute(this.form,troydwt.name,weight_data)" type=button value=换算 name=troydwt_bt></td>
+                                        <td>金衡格令</td>
+                                        <td><input size=12 name=troygrain> <input onclick="if (checkNum(troygrain.value)) compute(this.form,troygrain.name,weight_data)" type=button value=换算 name=troygrain_bt></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan=4><b>常 衡 制</b> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>(英制)长吨</td>
+                                        <td><input size=12 name=briton> <input onclick="if (checkNum(briton.value)) compute(this.form,briton.name,weight_data)" type=button value=换算 name=briton_bt></td>
+                                        <td>(美制)短吨</td>
+                                        <td><input size=12 name=uston> <input onclick="if (checkNum(uston.value)) compute(this.form,uston.name,weight_data)" type=button value=换算 name=uston_bt></td>
+                                    </tr>
+                                    <tr>
+                                        <td>英担(cwt)</td>
+                                        <td><input size=12 name=bricwt> <input onclick="if (checkNum(bricwt.value)) compute(this.form,bricwt.name,weight_data)" type=button value=换算 name=bricwt_bt></td>
+                                        <td>美担(cwt)</td>
+                                        <td><input size=12 name=uscwt> <input onclick="if (checkNum(uscwt.value)) compute(this.form,uscwt.name,weight_data)" type=button value=换算 name=uscwt_bt></td>
+                                    </tr>
+                                    <tr>
+                                        <td>英石</td>
+                                        <td><input size=12 name=bristone> <input onclick="if (checkNum(bristone.value)) compute(this.form,bristone.name,weight_data)" type=button value=换算 name=bristone_bt></td>
+                                        <td>磅(lb)</td>
+                                        <td><input size=12 name=avdppound> <input onclick="if (checkNum(avdppound.value)) compute(this.form,avdppound.name,weight_data)" type=button value=换算 name=avdppound_bt></td>
+                                    </tr>
+                                    <tr>
+                                        <td>盎司(oz)</td>
+                                        <td><input size=12 name=avdpounce> <input onclick="if (checkNum(avdpounce.value)) compute(this.form,avdpounce.name,weight_data)" type=button value=换算 name=avdpounce_bt></td>
+                                        <td>打兰(dr)</td>
+                                        <td><input size=12 name=avdpdram> <input onclick="if (checkNum(avdpdram.value)) compute(this.form,avdpdram.name,weight_data)" type=button value=换算 name=avdpdram_bt></td>
+                                    </tr>
+                                    <tr>
+                                        <td>格令</td>
+                                        <td><input size=12 name=avdpgrain> <input onclick="if (checkNum(avdpgrain.value)) compute(this.form,avdpgrain.name,weight_data)" type=button value=换算 name=avdpgrain_bt></td>
+                                        <td colspan="2"><input onclick=resetAll(this.form) type=button value=数据重置></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p><a style="text-decoration: none;color: #000" href="http://loveconvert.com" target="_blank">友情链接：Loveconvert</a></p>
+        </div>
+    </div>
+</body>
+
+</html>

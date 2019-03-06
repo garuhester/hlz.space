@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport' />
+    <title>在线排版工具</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/css.css" rel="stylesheet">
+    <script src="js/paiban.js"></script>
+    <link rel="shortcut icon" href="edit.png">
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="container">
+        <div class="row header">
+            <p><img src="edit.png"></p>
+            <h1>在线排版工具</h1></div>
+        <hr>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <div class="laobuluo_paiban">
+                    <form method="POST" name="KKsForm">
+                        <p>
+                            <textarea name="Content" rows="20" cols="100%" id="thebody" class="t14" class="form-control"></textarea>
+                        </p>
+                        <p>
+                            <input onClick="paste('Content')" type="button" value="粘贴进来" name="Button" title="粘贴进来" class="btn btn-primary">
+                            <input type="button" value="一键排版" name="body" title="点此按钮开始一键自动排版" class="btn btn-primary" onClick="javascript:format()">
+                            <input type="button" value="删除空行" name="body1" title="仅用于删除文章内多余空行及空格" class="btn btn-primary" onClick="javascript:format2()">
+                            <font color="#008000">
+                                <input class="btn btn-primary" title="自动段间空行自动排版" onClick="javascript:format3()" type="button" value="添加空行" name="body3">
+                            </font>
+                            <input type="button" value="文章字数统计" name="len" title="统计文本框内的文字个数" class="btn btn-primary" onClick="chklen()">
+                            <input type="button" value="替换英文标点" name="body4" onClick="javascript:format4()" class="btn btn-primary">
+                            <input onClick="copy('Content')" type="button" value="复制文章" name="cmdok" title="复制已排版后的文本内容" class="btn btn-primary">
+                            <input type="reset" value="清空内容" title="清空内容" name="cmdReset" class="btn btn-primary">
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <blockquote>
+            <p class="header">使用方法：将需要进行排版的文字贴进来，然后点击一键排版处理。</p>
+        </blockquote>
+    </div>
+    <div style="text-align:center;">
+        <p><a style="text-decoration: none;color: #000;font-size: 15px" href="http://loveconvert.com" target="_blank">友情链接：Loveconvert</a></p>
+    </div>
+    <!-- JiaThis Button BEGIN -->
+    <script type="text/javascript">
+      var jiathis_config = {data_track_clickback:'true'};
+    </script>
+    <script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0&amp;uid=2140259" charset="utf-8"></script>
+    <!-- JiaThis Button END -->
+    <script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+</body>
+
+</html>

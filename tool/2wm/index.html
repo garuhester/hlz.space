@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <TITLE>在线二维码制作</TITLE>
+    <META content="text/html; charset=utf-8" http-equiv=Content-Type>
+    <LINK rel=stylesheet type=text/css href="images/index.css">
+    <link rel="shortcut icon" href="favicon.png">
+    <SCRIPT type=text/javascript src="images/jquery-1.8.2.min.js"></SCRIPT>
+    <SCRIPT type=text/javascript src="images/iColorPicker.js"></SCRIPT>
+    <SCRIPT type=text/javascript src="images/ZeroClipboard.js"></SCRIPT>
+</head>
+
+<body style="padding:0;margin:0;background:#ddd;font-size:14px">
+    <div id="main" style="width:960px;background:#fff; border:1px solid #eee;margin:20px auto;padding:20px 40px;">
+        <DIV class=main>
+            <DIV class=ibox>
+                <DIV class=il>
+                    <DIV class=inav>
+                        <UL id=datatype class=class>
+                            <LI class=hover>
+                                <SPAN class=s1><A href="javascript:"  name=nav_text>通用文本</A></SPAN>
+                                <LI>
+                                    <SPAN class=s2><A href="javascript:" name=nav_telephone>电话号码</A></SPAN>
+                                    <LI>
+                                        <SPAN class=s3><A href="javascript:" name=nav_sms>短信</A></SPAN>
+                                        <LI>
+                                            <SPAN class=s4><A href="javascript:" name=nav_card>电子名片</A></SPAN>
+                                            <LI>
+                                                <SPAN class=s5><A href="javascript:" name=nav_mail>电子邮件</A></SPAN>
+                                                <LI>
+                                                    <SPAN class=s6><A href="javascript:" name=nav_url>网址</A></SPAN>
+                                                    <LI>
+                                                        <SPAN class=s7><A href="javascript:" name=nav_wifi>WiFi网络</A></SPAN>
+                                                    </LI>
+                        </UL>
+                    </DIV>
+                    <DIV class=middle>
+                        <FORM id=qrcodeform action=#>
+                            <DIV id=text class=imbox>
+                                <DIV class=imtit>推荐150字以内，支持普通文本/网址/EMAIL地址</DIV>
+                                <DIV class=imtext>
+                                    <TEXTAREA id=text_text rows=5 cols=30></TEXTAREA>
+                                    <!--  <div class="size"><span id="text_size">0</span>/150</div>-->
+                                </DIV>
+                            </DIV>
+                            <DIV id=telephone class=imbox>
+                                <DIV class=imtit>请输入你的电话号码</DIV>
+                                <DIV class=imtext>
+                                    <DIV class=input>
+                                        <INPUT id=telephone_tel class=sms>
+                                    </DIV>
+                                </DIV>
+                            </DIV>
+                            <DIV id=sms class=imbox>
+                                <DIV class=imtit>短信生成二维码，短信内容推荐140个字以内</DIV>
+                                <DIV class=imtext>
+                                    <DIV class=subtit>电话号码</DIV>
+                                    <DIV class=input>
+                                        <INPUT id=sms_tel class=sms>
+                                    </DIV>
+                                    <DIV class=subtit>短信内容</DIV>
+                                    <TEXTAREA id=sms_sms rows=5 cols=30></TEXTAREA>
+                                    <DIV class=size>
+                                        <SPAN id=sms_size>0</SPAN>/140</DIV>
+                                </DIV>
+                            </DIV>
+                            <DIV id=card class=imbox>
+                                <DIV class=imtit>电话和姓名为必填项</DIV>
+                                <DIV class=imtext>
+                                    <DIV class=subtit>
+                                        <SPAN>*</SPAN>姓名</DIV>
+                                    <DIV class=input>
+                                        <INPUT id=card_n class=sms>
+                                    </DIV>
+                                    <DIV class=subtit>
+                                        <SPAN>*</SPAN>电话</DIV>
+                                    <DIV class=input>
+                                        <INPUT id=card_tel class=sms>
+                                    </DIV>
+                                    <DIV class=subtit>公司/单位</DIV>
+                                    <DIV class=input>
+                                        <INPUT id=card_org class=sms>
+                                    </DIV>
+                                    <DIV class=subtit>职位</DIV>
+                                    <DIV class=input>
+                                        <INPUT id=card_til class=sms>
+                                    </DIV>
+                                    <DIV class=subtit>网址</DIV>
+                                    <DIV class=input>
+                                        <INPUT id=card_url class=sms>
+                                    </DIV>
+                                    <DIV class=subtit>电子邮箱</DIV>
+                                    <DIV class=input>
+                                        <INPUT id=card_mail class=sms>
+                                    </DIV>
+                                    <DIV class=subtit>地址</DIV>
+                                    <DIV class=input>
+                                        <INPUT id=card_adr class=sms>
+                                    </DIV>
+                                    <!-- <div class="subtit">备注</div>
+<textarea rows="3" cols="20"></textarea>-->
+                                </DIV>
+                            </DIV>
+                            <DIV id=mail class=imbox>
+                                <DIV class=imtit>电子邮件生成二维码</DIV>
+                                <DIV class=imtext>
+                                    <DIV class=input>
+                                        <INPUT id=mail_mail class=sms>
+                                    </DIV>
+                                </DIV>
+                            </DIV>
+                            <DIV id=url class=imbox>
+                                <DIV class=imtit>网址请以http://或https://开头</DIV>
+                                <DIV class=imtext>
+                                    <DIV class=input>
+                                        <INPUT id=url_url class=sms>
+                                    </DIV>
+                                </DIV>
+                            </DIV>
+                            <DIV id=wifi class=imbox>
+                                <DIV class=imtit>适用于安卓系统</DIV>
+                                <DIV class=imtext>
+                                    <DIV class=subtit>SSID/无线账号</DIV>
+                                    <DIV class=input>
+                                        <INPUT id=wifi_ssid class=sms>
+                                    </DIV>
+                                    <DIV class=subtit>密码</DIV>
+                                    <DIV class=input>
+                                        <INPUT id=wifi_p class=sms>
+                                    </DIV>
+                                    <DIV class=subtit>密码类型</DIV>
+                                    <DIV class=input>
+                                        <SELECT id=wifi_t class=select>
+                                            <OPTION selected value=WPA/WPA2>WPA/WPA2</OPTION>
+                                            <OPTION value=WEP>WEP</OPTION>
+                                            <OPTION>无加密</OPTION>
+                                        </SELECT>
+                                    </DIV>
+                                </DIV>
+                            </DIV>
+                            <DIV class=selectcolor>背景颜色
+                                <INPUT id=bg class=iColorPicker onClick="iColorShow('bg','icp_bg')" value=#ffffff maxLength=7 name=mycolor> 图片颜色
+                                <INPUT id=fg class=iColorPicker onClick="iColorShow('fg','icp_fg')" value=#000000 maxLength=7 name=mycolor> </DIV>
+                            <DIV class=generate>
+                                <INPUT class=submit type=submit value="">
+                            </DIV>
+                        </FORM>
+                        <SCRIPT type=text/javascript>
+                        (function($) {
+                            $('#telephone,#sms,#card,#mail,#url,#wifi').hide();
+                        })(jQuery)
+                        </SCRIPT>
+                    </DIV>
+                </DIV>
+                <DIV class=ir>
+                    <DIV class=irtit>您可以用手机扫描这张二维码图片,或者右键图片保存</DIV>
+                    <TABLE class=table>
+                        <TBODY>
+                            <TR>
+                                <TD vAlign=center align=middle>
+                                    <DIV id=bigcode class=bigcode>
+                                        <A>
+                                            <IMG id=qrcodeimg src="images/code.jpg">
+                                        </A>
+                                    </DIV>
+                                </TD>
+                            </TR>
+                        </TBODY>
+                    </TABLE>
+                    <DIV class=save>
+                    </DIV>
+                </DIV>
+            </DIV>
+            <div style=" text-align:left; line-height:210%; font-size:14px;">
+                &nbsp;&nbsp;&nbsp;&nbsp;<strong>二维码</strong>又称二维条码，是在一维条码的基础上扩展出的一种具有可读性的条码。
+                <br> &nbsp;&nbsp;&nbsp;&nbsp;设备通过扫描二维码，识别条码的二进制数据并可获取其中所包含的信息。
+                <br> &nbsp;&nbsp;&nbsp;&nbsp;手机二维码可以印刷在报纸、杂志、图书及个人名片等多种载体上，用户通过手机摄像头扫描二维码，即可实现快速手机上网，下载图文、音乐、视频、参与抽奖、了解企业产品信息等，还可以方便地用手机识别和存储名片、自动输入短信、获取公共服务（如天气预报）、查询电子地图、手机阅读等多种功能。手机二维码是3G时代网络浏览、应用下载、网上购物、网上支付等服务的重要入口。
+                <br> &nbsp;&nbsp;&nbsp;&nbsp;手机二维码扫描软件：比较知名的应用有条码扫描器、快拍、酷拍、我查查等。彩色二维码生成器,二维码生成器。
+            </div>
+        </div>
+    </DIV>
+    <div style="text-align:center;">
+        <p><a style="text-decoration: none;color: #000;padding-bottom:5px;" href="http://loveconvert.com" target="_blank">友情链接：Loveconvert</a></p>
+    </div>
+    <!-- JiaThis Button BEGIN -->
+    <script type="text/javascript">
+    var jiathis_config = { data_track_clickback: 'true' };
+    </script>
+    <script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0&amp;uid=2140259" charset="utf-8"></script>
+    <!-- JiaThis Button END -->
+    <SCRIPT type=text/javascript src="images/index.js"></SCRIPT>
+    <SCRIPT type=text/javascript src="images/public.js"></SCRIPT>
+    </div>
+    </div>
+</body>
+
+</html>

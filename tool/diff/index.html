@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>在线文本对比高亮工具(Online Diff and Highlight Text)</title>
+    <!-- Requires jQuery -->
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
+    <!-- Requires CodeMirror -->
+    <script type="text/javascript" src="./lib/codemirror.js"></script>
+    <link type="text/css" rel="stylesheet" href="./lib/codemirror.css" />
+    <!-- Requires Mergely -->
+    <script type="text/javascript" src="./lib/mergely.js"></script>
+    <link type="text/css" rel="stylesheet" href="./lib/mergely.css" />
+    <link rel="shortcut icon" href="diff.png">
+</head>
+
+<body>
+    <div id="mergely-resizer">
+        <div id="compare">
+        </div>
+    </div>
+    <div style="text-align:center;">
+        <p><a style="text-decoration: none;color: #000" href="http://loveconvert.com" target="_blank">友情链接：Loveconvert</a></p>
+    </div>
+  <!-- JiaThis Button BEGIN -->
+            <script type="text/javascript">
+            var jiathis_config = {data_track_clickback:'true'};
+            </script>
+            <script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0&amp;uid=2140259" charset="utf-8"></script>
+            <!-- JiaThis Button END -->
+</body>
+<script type="text/javascript">
+function getWinHeight() {
+    var winHeight = 0;
+    if (window.innerHeight)
+        winHeight = window.innerHeight;
+    else if ((document.body) && (document.body.clientHeight))
+        winHeight = document.body.clientHeight;
+    return winHeight;
+}
+
+function getWinWidth() {
+    var winWidth = 0;
+    if (window.innerWidth)
+        winWidth = window.innerWidth;
+    else if ((document.body) && (document.body.clientWidth))
+        winWidth = document.body.clientWidth;
+    return winWidth;
+}
+$(document).ready(function() {
+    $('#compare').mergely({
+        width: 'auto',
+        height: '400',
+        cmsettings: {
+            readOnly: false,
+            lineWrapping: true,
+        },
+        lhs: function(setValue) {
+            setValue('这里是在线文本对比高亮工具.\n网站是:http://www.loveconvert.com/tool/diff');
+        },
+        rhs: function(setValue) {
+            setValue('这里是在线文本对比高亮工具.\n域名是:http://www.loveconvert.com/tool/diff');
+        }
+    });
+    $(window).resize(function() {
+        $('#compare').mergely('options', { height: getWinHeight() - 30, width: getWinWidth() - 30 });
+        $('#compare').mergely('update')
+    });
+    $(window).resize();
+});
+</script>
+
+</html>

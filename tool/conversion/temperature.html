@@ -1,0 +1,380 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>温度换算</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        body {
+            margin: 0px;
+            font-size: 12px;
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+        
+        input,
+        textarea,
+        select {
+            font-size: 12px;
+        }
+        
+        ul,
+        li {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #000000;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+            color: #FF0000;
+        }
+        
+        img {
+            border: 0px;
+        }
+        
+        .main {
+            width: 70%;
+            margin: 0 auto;
+        }
+        
+        .logoBox {
+            height: 100px;
+        }
+        
+        .content {
+            margin: 0px auto;
+        }
+        
+        .navTopTit {
+            height: 26px;
+            line-height: 26px;
+            background-color: #999999;
+        }
+        
+        .navIntro {
+            float: right;
+            padding-right: 20px;
+            color: #FFFFFF;
+        }
+        
+        .navIntro a {
+            color: #FFFFFF;
+        }
+        
+        .navIntro a:hover {
+            color: #FFFFFF;
+            text-decoration: underline;
+        }
+        
+        .box {
+            background-color: #FFFFFF;
+        }
+        
+        .tool {
+            padding: 12px 20px 20px 20px;
+        }
+        
+        .tool input {
+            padding: 1px 5px;
+        }
+        
+        .tool textarea {
+            padding: 5px;
+        }
+        
+        .tool table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        .tool td {
+            border: 1px solid #ccc;
+            text-align: center;
+            padding: 5px;
+        }
+        
+        .tinfo {
+            margin-bottom: 20px;
+            background-color: #EEEEEE;
+            border: 1px solid #ddd;
+            padding: 18px;
+            color: #666666;
+        }
+        
+        .tinfo b {
+            font-size: 14px;
+        }
+        
+        .tname {
+            background-color: #E8E8E8;
+            color: #666666;
+            font-size: 16px;
+            height: 30px;
+        }
+        
+        .tabt {
+            height: 8px;
+        }
+        
+        .tabb {
+            height: 8px;
+            background-color: #E8E8E8;
+        }
+        
+        .tnameb {
+            height: 8px;
+        }
+        
+        .toolbox {
+            text-align: center;
+            margin: 0px auto;
+            line-height: 16px;
+        }
+        
+        .toolbox div {
+            text-align: center;
+        }
+        
+        .tooltime {
+            margin-top: 20px;
+            background-color: #EEEEEE;
+            border: 1px solid #00DDFF;
+            padding: 18px;
+            color: #666666;
+        }
+        
+        .tooltime b {
+            font-size: 14px;
+        }
+        
+        .fright {
+            float: right;
+            text-align: right;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 10px;
+            font-size: 15px;
+        }
+        
+        .f {
+            position: absolute;
+            top: -999px;
+            left: -999px
+        }
+        
+        input[size] {
+            width: 70%;
+            border: 1px solid rgb(116, 116, 116);
+            outline: none;
+            padding: 5px;
+        }
+        
+        input[type=button] {
+            background: rgb(132, 198, 255);
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            color: #fff;
+            margin: 1px;
+            outline: none;
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+        
+        input[type=button]:active {
+            background: rgb(103, 186, 255);
+        }
+        
+        input[value=数据重置] {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="content">
+            <div class="box">
+                <div class="tool">
+                    <div class="tinfo"><b>温度换算：</b> 可实现摄氏度(CELSIUS EQUALS)、华氏度(FARENHEIT EQUALS)、开氏度(KELVIN EQUALS)、兰氏度(RANKINE EQUALS)、列氏度(REAUMUR EQUALS)五种温度计量单位间的互转互换。
+                    </div>
+                    <script language="javascript" type="text/javascript">
+                        function checkNum(str) {
+                            for (var i = 0; i < str.length; i++) {
+                                var ch = str.substring(i, i + 1)
+                                if (ch != "." && ch != "+" && ch != "-" && ch != "e" && ch != "E" && (ch < "0" || ch > "9")) {
+                                    alert("请输入有效的数字");
+                                    return false;
+                                }
+                            }
+                            return true
+                        }
+
+                        function computeTempC(obj) {
+                            var tempC = parseFloat(obj.tempCelsius.value)
+                            if ((tempC >= 0) && (obj.tempCelsius.value.indexOf("-") != -1)) {
+                                tempC = -tempC;
+                            }
+                            if (!(tempC < -273.15)) {
+                                var tempK = tempC + 273.15
+                                var tempF = 32 + (tempC * 9 / 5)
+                                var tempRa = tempK * 1.8
+                                var tempRe = tempC / 1.25
+                                obj.tempKelvin.value = tempK
+                                obj.tempFahr.value = tempF
+                                obj.tempRankine.value = tempRa
+                                obj.tempReaumur.value = tempRe
+                            } else {
+                                obj.tempKelvin.value = "ERROR"
+                                obj.tempFahr.value = "ERROR"
+                                obj.tempRankine.value = "ERROR"
+                                obj.tempReaumur.value = "ERROR"
+                            }
+                        }
+
+                        function computeTempF(obj) {
+                            var tempF = parseFloat(obj.tempFahr.value)
+                            if ((tempF >= 0) && (obj.tempFahr.value.indexOf("-") != -1)) tempF = -tempF;
+                            if (!(tempF < -459.666666)) {
+                                var tempC = (tempF - 32) * 5 / 9
+                                var tempK = tempC + 273.15
+                                var tempRa = tempK * 1.8
+                                var tempRe = tempC / 1.25
+                                obj.tempCelsius.value = tempC
+                                obj.tempKelvin.value = tempK
+                                obj.tempRankine.value = tempRa
+                                obj.tempReaumur.value = tempRe
+                            } else {
+                                obj.tempCelsius.value = "ERROR"
+                                obj.tempKelvin.value = "ERROR"
+                                obj.tempRankine.value = "ERROR"
+                                obj.tempReaumur.value = "ERROR"
+                            }
+                        }
+
+                        function computeTempK(obj) {
+                            var tempK = parseFloat(obj.tempKelvin.value)
+                            if ((tempK >= 0) && (obj.tempKelvin.value.indexOf("-") != -1)) {
+                                tempK = -tempK;
+                            }
+                            if (!(tempK < 0)) {
+                                var tempC = tempK - 273.15
+                                var tempF = 32 + (tempC * 9 / 5)
+                                var tempRa = tempK * 1.8
+                                var tempRe = tempC / 1.25
+                                obj.tempCelsius.value = tempC
+                                obj.tempFahr.value = tempF
+                                obj.tempRankine.value = tempRa
+                                obj.tempReaumur.value = tempRe
+                            } else {
+                                obj.tempCelsius.value = "ERROR"
+                                obj.tempFahr.value = "ERROR"
+                                obj.tempRankine.value = "ERROR"
+                                obj.tempReaumur.value = "ERROR"
+                            }
+                        }
+
+                        function computeTempRa(obj) {
+                            var tempRa = parseFloat(obj.tempRankine.value)
+                            if ((tempRa >= 0) && (obj.tempRankine.value.indexOf("-") != -1)) {
+                                tempRa = -tempRa;
+                            }
+                            if (!(tempRa < 0)) {
+                                var tempK = tempRa / 1.8
+                                var tempC = tempK - 273.15
+                                var tempF = 32 + (tempC * 9 / 5)
+                                var tempRe = tempC / 1.25
+                                obj.tempCelsius.value = tempC
+                                obj.tempFahr.value = tempF
+                                obj.tempKelvin.value = tempK
+                                obj.tempReaumur.value = tempRe
+                            } else {
+                                obj.tempCelsius.value = "ERROR"
+                                obj.tempFahr.value = "ERROR"
+                                obj.tempKelvin.value = "ERROR"
+                                obj.tempReaumur.value = "ERROR"
+                            }
+                        }
+
+                        function computeTempRe(obj) {
+                            var tempRe = parseFloat(obj.tempReaumur.value)
+                            if ((tempRe >= 0) && (obj.tempReaumur.value.indexOf("-") != -1)) {
+                                tempRe = -tempRe;
+                            }
+                            if (!(tempRe < -218.5199999999)) {
+                                var tempC = tempRe * 1.25
+                                var tempK = tempC + 273.15
+                                var tempF = 32 + (tempC * 9 / 5)
+                                var tempRa = tempK * 1.8
+                                obj.tempCelsius.value = tempC
+                                obj.tempFahr.value = tempF
+                                obj.tempKelvin.value = tempK
+                                obj.tempRankine.value = tempRa
+                            } else {
+                                obj.tempCelsius.value = "ERROR"
+                                obj.tempFahr.value = "ERROR"
+                                obj.tempKelvin.value = "ERROR"
+                                obj.tempRankine.value = "ERROR"
+                            }
+                        }
+
+                        function resetAll(form) {
+                            form.tempCelsius.value = ""
+                            form.tempKelvin.value = ""
+                            form.tempFahr.value = ""
+                            form.tempRankine.value = ""
+                            form.tempReaumur.value = ""
+                        }
+                    </script>
+                    <div class="toolbox">
+                        <form action="">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td colspan=4 class="tname"><b>温 度 换 算</b></td>
+                                    </tr>
+                                    <TR>
+                                        <TD>摄氏度(C)</TD>
+                                        <TD><input name=tempCelsius size="12"> <input onClick="if (checkNum(tempCelsius.value)) computeTempC(this.form)" type=button value="换算"></TD>
+                                        <TD>华氏度(F)</TD>
+                                        <TD><input name=tempFahr size="12"> <input onClick="if (checkNum(tempFahr.value)) computeTempF(this.form)" type=button value="换算"></TD>
+                                    </TR>
+                                    <TR>
+                                        <TD>开氏度(K)</TD>
+                                        <TD><input name=tempKelvin size="12"> <input onClick="if (checkNum(tempKelvin.value)) computeTempK(this.form)" type=button value="换算"></TD>
+                                        <TD>兰氏度(Ra)</TD>
+                                        <TD><input name=tempRankine size="12"> <input onClick="if (checkNum(tempRankine.value)) computeTempRa(this.form)" type=button value="换算"></TD>
+                                    </TR>
+                                    <TR>
+                                        <TD>列氏度(Re)</TD>
+                                        <TD><input name=tempReaumur size="12"> <input onClick="if (checkNum(tempReaumur.value)) computeTempRe(this.form)" type=button value="换算"></TD>
+                                        <TD colSpan=2>
+                                            <INPUT onclick=resetAll(this.form) type=button value=数据重置 name=res7>
+                                        </TD>
+                                    </TR>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p><a style="text-decoration: none;color: #000" href="http://loveconvert.com" target="_blank">友情链接：Loveconvert</a></p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>功率换算</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        body {
+            margin: 0px;
+            font-size: 12px;
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+        
+        input,
+        textarea,
+        select {
+            font-size: 12px;
+        }
+        
+        ul,
+        li {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #000000;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+            color: #FF0000;
+        }
+        
+        img {
+            border: 0px;
+        }
+        
+        .main {
+            width: 70%;
+            margin: 0 auto;
+        }
+        
+        .logoBox {
+            height: 100px;
+        }
+        
+        .content {
+            margin: 0px auto;
+        }
+        
+        .navTopTit {
+            height: 26px;
+            line-height: 26px;
+            background-color: #999999;
+        }
+        
+        .navIntro {
+            float: right;
+            padding-right: 20px;
+            color: #FFFFFF;
+        }
+        
+        .navIntro a {
+            color: #FFFFFF;
+        }
+        
+        .navIntro a:hover {
+            color: #FFFFFF;
+            text-decoration: underline;
+        }
+        
+        .box {
+            background-color: #FFFFFF;
+        }
+        
+        .tool {
+            padding: 12px 20px 20px 20px;
+        }
+        
+        .tool input {
+            padding: 1px 5px;
+        }
+        
+        .tool textarea {
+            padding: 5px;
+        }
+        
+        .tool table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        .tool td {
+            border: 1px solid #ccc;
+            text-align: center;
+            padding: 5px;
+        }
+        
+        .tinfo {
+            margin-bottom: 20px;
+            background-color: #EEEEEE;
+            border: 1px solid #ddd;
+            padding: 18px;
+            color: #666666;
+        }
+        
+        .tinfo b {
+            font-size: 14px;
+        }
+        
+        .tname {
+            background-color: #E8E8E8;
+            color: #666666;
+            font-size: 16px;
+            height: 30px;
+        }
+        
+        .tabt {
+            height: 8px;
+        }
+        
+        .tabb {
+            height: 8px;
+            background-color: #E8E8E8;
+        }
+        
+        .tnameb {
+            height: 8px;
+        }
+        
+        .toolbox {
+            text-align: center;
+            margin: 0px auto;
+            line-height: 16px;
+        }
+        
+        .toolbox div {
+            text-align: center;
+        }
+        
+        .tooltime {
+            margin-top: 20px;
+            background-color: #EEEEEE;
+            border: 1px solid #00DDFF;
+            padding: 18px;
+            color: #666666;
+        }
+        
+        .tooltime b {
+            font-size: 14px;
+        }
+        
+        .fright {
+            float: right;
+            text-align: right;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 10px;
+            font-size: 15px;
+        }
+        
+        .f {
+            position: absolute;
+            top: -999px;
+            left: -999px
+        }
+        
+        input[size] {
+            width: 70%;
+            border: 1px solid rgb(116, 116, 116);
+            outline: none;
+            padding: 5px;
+        }
+        
+        input[type=button] {
+            background: rgb(132, 198, 255);
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            color: #fff;
+            margin: 1px;
+            outline: none;
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+        
+        input[type=button]:active {
+            background: rgb(103, 186, 255);
+        }
+        
+        input[value=数据重置] {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="content">
+            <div class="box">
+                <div class="tool">
+                    <div class="tinfo"><b>功率换算：</b> 可实现在线瓦(W)、千瓦(kW)、英制马力(HP)、米制马力(PS)、公斤·米秒(kg·ms)、千卡秒(kcals)、英热单位秒(Btus)、英尺·磅秒(ft·lbs)、焦耳秒(Js)、牛顿·米秒(N·ms)间的互转互换。
+                    </div>
+                    <script language="javascript" type="text/javascript">
+                        function POWER_MEASURES() {
+                            this.Watt = 0.001
+                            this.Kilowatt = 1
+                            this.Horsepower = 0.745712172
+                            this.mHorsepower = 0.7352941
+                            this.kgms = 0.0098039215
+                            this.kcals = 4.1841004
+                            this.Btus = 1.05507491
+                            this.ftlbs = 0.0013557483731
+                            this.Js = 0.001
+                            this.Nms = 0.001
+                        }
+                        var power_data = new POWER_MEASURES();
+
+                        function checkNum(str) {
+                            for (var i = 0; i < str.length; i++) {
+                                var ch = str.substring(i, i + 1)
+                                if (ch != "." && ch != "+" && ch != "-" && ch != "e" && ch != "E" && (ch < "0" || ch > "9")) {
+                                    alert("请输入有效的数字");
+                                    return false;
+                                }
+                            }
+                            return true
+                        }
+
+                        function normalize(what, digits) {
+                            var str = "" + what;
+                            var pp = Math.max(str.lastIndexOf("+"), str.lastIndexOf("-"));
+                            var idot = str.indexOf(".");
+                            if (idot >= 1) {
+                                var ee = (pp > 0) ? str.substring(pp - 1, str.length) : "";
+                                digits += idot;
+                                if (digits >= str.length)
+                                    return str;
+                                if (pp > 0 && digits >= pp)
+                                    digits -= pp;
+                                var c = eval(str.charAt(digits));
+                                var ipos = digits - 1;
+                                if (c >= 5) {
+                                    while (str.charAt(ipos) == "9")
+                                        ipos--;
+                                    if (str.charAt(ipos) == ".") {
+                                        var nc = eval(str.substring(0, idot)) + 1;
+                                        if (nc == 10 && ee.length > 0) {
+                                            nc = 1;
+                                            ee = "e" + (eval(ee.substring(1, ee.length)) + 1);
+                                        }
+                                        return "" + nc + ee;
+                                    }
+                                    return str.substring(0, ipos) + (eval(str.charAt(ipos)) + 1) + ee;
+                                } else
+                                    var ret = str.substring(0, digits) + ee;
+                                for (var i = 0; i < ret.length; i++)
+                                    if (ret.charAt(i) > "0" && ret.charAt(i) <= "9")
+                                        return ret;
+                                return str;
+                            }
+                            return str;
+                        }
+
+                        function compute(obj, val, data) {
+                            if (obj[val].value) {
+                                var uval = 0;
+                                uval = obj[val].value * data[val];
+                                if ((uval >= 0) && (obj[val].value.indexOf("-") != -1)) {
+                                    uval = -uval;
+                                }
+                                for (var i in data)
+                                    obj[i].value = normalize(uval / data[i], 8);
+                            }
+                        }
+
+                        function resetValues(form, data) {
+                            for (var i in data)
+                                form[i].value = "";
+                        }
+
+                        function resetAll(form) {
+                            resetValues(form, power_data);
+                        }
+                    </script>
+                    <div class="toolbox">
+                        <form action="">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td colspan=4 class="tname"><b>功 率 换 算</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>瓦(W)</td>
+                                        <td><input name=Watt size="10"> <input onClick="if (checkNum(Watt.value)) compute(this.form,Watt.name,power_data)" type=button value="换算" name=Watt_bt></td>
+                                        <td>千瓦(kW)</td>
+                                        <td><input name=Kilowatt size="10"> <input onClick="if (checkNum(Kilowatt.value)) compute(this.form,Kilowatt.name,power_data)" type=button value="换算" name=Kilowatt_bt></td>
+                                    </tr>
+                                    <tr>
+                                        <td>英制马力(HP)</td>
+                                        <td><input name=Horsepower size="10"> <input onClick="if (checkNum(Horsepower.value)) compute(this.form,Horsepower.name,power_data)" type=button value="换算" name=Horsepower_bt></td>
+                                        <td>米制马力(PS)</td>
+                                        <td><input name=mHorsepower size="10"> <input onClick="if (checkNum(mHorsepower.value)) compute(this.form,mHorsepower.name,power_data)" type=button value="换算" name=mHorsepower_bt></td>
+                                    </tr>
+                                    <tr>
+                                        <td>公斤·米/秒(kg·m/s)</td>
+                                        <td><input name=kgms size="10"> <input onClick="if (checkNum(kgms.value)) compute(this.form,kgms.name,power_data)" type=button value="换算" name=kgms_bt></td>
+                                        <td>千卡/秒(kcal/s)</td>
+                                        <td><input name=kcals size="10"> <input onClick="if (checkNum(kcals.value)) compute(this.form,kcals.name,power_data)" type=button value="换算" name=kcals_bt></td>
+                                    </tr>
+                                    <tr>
+                                        <td>英热单位/秒(Btu/s)</td>
+                                        <td><input name=Btus size="10"> <input onClick="if (checkNum(Btus.value)) compute(this.form,Btus.name,power_data)" type=button value="换算" name=Btus_bt></td>
+                                        <td>英尺·磅/秒(ft·lb/s)</td>
+                                        <td><input name=ftlbs size="10"> <input onClick="if (checkNum(ftlbs.value)) compute(this.form,ftlbs.name,power_data)" type=button value="换算" name=ftlbs_bt></td>
+                                    </tr>
+                                    <tr>
+                                        <td>焦耳/秒(J/s)</td>
+                                        <td><input name=Js size="10"> <input onClick="if (checkNum(Js.value)) compute(this.form,Js.name,power_data)" type=button value="换算" name=Js_bt></td>
+                                        <td>牛顿·米/秒(N·m/s)</td>
+                                        <td><input name=Nms size="10"> <input onClick="if (checkNum(Nms.value)) compute(this.form,Nms.name,power_data)" type=button value="换算" name=Nms_bt></td>
+                                    </tr>
+                                    <tr>
+                                        <td colSpan=4>
+                                            <INPUT onclick=resetAll(this.form) type=button value="数据重置" name=res7>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p><a style="text-decoration: none;color: #000" href="http://loveconvert.com" target="_blank">友情链接：Loveconvert</a></p>
+        </div>
+    </div>
+</body>
+
+</html>

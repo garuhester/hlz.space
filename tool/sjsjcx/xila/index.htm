@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Cache-Control" content="no-transform " /><!--禁止百度转码-->
+<meta name="robots" content="all" /><!--支持搜索-->
+<meta content="希腊时间,希腊当地时间,世界时间" name="keywords">
+<meta content="出国留学网世界时间频道为您提供希腊时间，希腊当地时间，希腊现在时间，世界标准时间，希望对您有所帮助！" name="description">
+<title>希腊时间_希腊当地时间_时间时间</title>
+<link rel="stylesheet" href="../css/zonghe.css"  type="text/css">
+<script type="text/javascript" src="../js/jquery.js" ></script>
+<script type="text/javascript" src="../../120.132.63.203/pjk/pag/ys.php-b=AH0016169&c=670773818_101.254.146.109_1935089865&m=aHR0cDovL3d3dy5saXV4dWU4Ni5jb20vcHJveHkvP2Y9ZGF0YS9jb25maWcuanMsY3NzL2xpdXh1ZV9vdXRwdXQuanM=" ></script>	<!--[if IE 6]>  
+				<script type="text/javascript" src="js/PNG.js" ></script>  
+				<script type="text/javascript">  
+				DD_belatedPNG.fix('a,em,i,div,p,span,input,ul,li,h1,h2,h3,h4,h5,h6,img,body');  
+				</script>  
+		<![endif]-->
+</head>
+
+<body style=" background:#f6f8f9;">
+
+
+
+
+<div class="time  clearfix">
+	<div class="time_div">
+		<p class="time_p"><A href="../index.htm" ><img src="../images/time.png" ></A></p>
+		
+		<div class="time_shi clearfix">
+			<p id="gmttime"></p>
+			<p id="localtime"></p>
+		</div>
+	</div>
+		<div class="time_zz">
+			<div class="time_nei">
+				<a href="../index.htm" >首页</a>
+				<a href="../asia.html"  id="asia">亚洲</a>
+				<a href="../africa.html"  id="africa">非洲</a>
+				<a href="../northamerica.html"  id="northamerica">北美洲</a>
+				<a href="../southamerica.html"  id="southamerica">南美洲</a>
+				<a href="../oceania.html"  id="oceania">澳洲/太平洋</a>
+				<a href="../europe.html"  id="europe">欧洲</a>
+			</div>
+		</div>
+		<style>
+			#europe{ color:#fff; background:#377bee;}
+		</style>
+		<div class="time_ul">
+		<div class="time_ul_a">
+						<a href="index.htm" >【希腊时间】</a>
+					</div>
+		<ul>
+												<li>
+				<em>1.</em>
+				<a href="yadian.html" >雅典</a> 
+				
+				<strong class="countrytime" data-timezone="+2.00"></strong>
+			</li>
+											</ul>
+		<div class="guangaowei">
+				<script type="text/javascript">lx.output.ad_time_guojia_index();</script>		
+		</div> 
+		</div>
+</div>
+<script>
+$(document).ready(function() {
+	setInterval(function(){
+		$('.countrytime').each(function(){
+			timezone = $(this).attr('data-timezone');
+			var d = new Date(); 
+utc = d.getTime() + (d.getTimezoneOffset() * 60000); 
+var nd = new Date(utc + (3600000 * timezone)); 
+var gmtTime = new Date(utc) 
+var day = nd.getDate(); 
+var month = nd.getMonth(); 
+var year = nd.getYear(); 
+var hr = nd.getHours(); //+ offset 
+var min = nd.getMinutes(); 
+var sec = nd.getSeconds(); 
+if(year < 1000){ 
+year += 1900 
+} 
+var monthArray = new Array("1", "2", "3", "4", "5", "6", "7", "8", 
+"9", "10", "11", "12") 
+var monthDays = new Array("31", "28", "31", "30", "31", "30", "31", "31", "30", "31", "30", "31") 
+if (year%4 == 0){ 
+monthDays = new Array("31", "29", "31", "30", "31", "30", "31", "31", "30", "31", "30", "31") 
+} 
+if(year%100 == 0 && year%400 != 0){ 
+monthDays = new Array("31", "28", "31", "30", "31", "30", "31", "31", "30", "31", "30", "31") 
+} 
+if (hr >= 24){ 
+hr = hr-24 
+day -= -1 
+} 
+if (hr < 0){ 
+hr -= -24 
+day -= 1 
+} 
+if (hr < 10){ 
+hr = "0" + hr 
+} 
+if (min < 10){ 
+min = "0" + min 
+} 
+if (sec < 10){ 
+sec = "0" + sec 
+} 
+if (day <= 0){ 
+if (month == 0){ 
+month = 11 
+year -= 1 
+} 
+else{ 
+month = month -1 
+} 
+day = monthDays[month] 
+} 
+if(day > monthDays[month]){ 
+day = 1 
+if(month == 11){ 
+month = 0 
+year -= -1 
+} 
+else{ 
+month -= -1 
+} 
+} 
+			$(this).text(year+'-'+monthArray[month]+'-'+day+' '+hr+ ':' + min + ':' + sec);
+		});
+	time= parseInt(time) + 1000;
+	},1000);
+});
+</script>
+<div class="footer_two">
+	<script type="text/javascript">lx.output.show_foot();</script>
+</div>
+</body>
+</html>
+

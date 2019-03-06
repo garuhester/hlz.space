@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>html转js</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        body {
+            margin: 0px;
+            font-size: 12px;
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+        
+        input,
+        textarea,
+        select {
+            font-size: 12px;
+        }
+        
+        ul,
+        li {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #000000;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+            color: #FF0000;
+        }
+        
+        img {
+            border: 0px;
+        }
+        
+        .main {
+            width: 70%;
+            margin: 0 auto;
+        }
+        
+        .logoBox {
+            height: 100px;
+        }
+        
+        .content {
+            margin: 0px auto;
+        }
+        
+        .navTopTit {
+            height: 26px;
+            line-height: 26px;
+            background-color: #999999;
+        }
+        
+        .navIntro {
+            float: right;
+            padding-right: 20px;
+            color: #FFFFFF;
+        }
+        
+        .navIntro a {
+            color: #FFFFFF;
+        }
+        
+        .navIntro a:hover {
+            color: #FFFFFF;
+            text-decoration: underline;
+        }
+        
+        .box {
+            background-color: #FFFFFF;
+        }
+        
+        .tool {
+            padding: 12px 20px 20px 20px;
+        }
+        
+        .tool input {
+            padding: 1px 5px;
+        }
+        
+        .tool textarea {
+            padding: 5px;
+        }
+        
+        .tool table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        .tool td {
+            border: 1px solid #ccc;
+            text-align: center;
+            padding: 5px;
+        }
+        
+        .tinfo {
+            margin-bottom: 20px;
+            background-color: #EEEEEE;
+            border: 1px solid #ddd;
+            padding: 18px;
+            color: #666666;
+        }
+        
+        .tinfo b {
+            font-size: 14px;
+        }
+        
+        .tname {
+            background-color: #E8E8E8;
+            color: #666666;
+            font-size: 16px;
+            height: 30px;
+        }
+        
+        .tabt {
+            height: 8px;
+        }
+        
+        .tabb {
+            height: 8px;
+            background-color: #E8E8E8;
+        }
+        
+        .tnameb {
+            height: 8px;
+        }
+        
+        .toolbox {
+            text-align: center;
+            margin: 0px auto;
+            line-height: 16px;
+        }
+        
+        .toolbox div {
+            text-align: center;
+        }
+        
+        .tooltime {
+            margin-top: 20px;
+            background-color: #EEEEEE;
+            border: 1px solid #00DDFF;
+            padding: 18px;
+            color: #666666;
+        }
+        
+        .tooltime b {
+            font-size: 14px;
+        }
+        
+        .fright {
+            float: right;
+            text-align: right;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 10px;
+            font-size: 15px;
+        }
+        
+        .f {
+            position: absolute;
+            top: -999px;
+            left: -999px
+        }
+        
+        input[size] {
+            width: 70%;
+            border: 1px solid rgb(116, 116, 116);
+            outline: none;
+            padding: 5px;
+        }
+        
+        input[type=button],
+        input[type=reset] {
+            background: rgb(132, 198, 255);
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            color: #fff;
+            margin: 1px;
+            outline: none;
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+        
+        input[type=button]:active,
+        input[type=reset]:active {
+            background: rgb(103, 186, 255);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="content">
+            <div class="box">
+                <div class="tool">
+                    <div class="tinfo"><b>html转js：</b> 可以把html源代码转换成js代码下的格式，还可以选择什么输出代码、是否每行添加输出函数，并生成两种js输出格式。
+                    </div>
+                    <script language="javascript" type="text/javascript">
+                        function change() {
+                            var temp, result, pattern;
+                            temp = document.getElementById("oSource").value.replace(/\\/g, "\\\\");
+                            temp = temp.replace(/\//g, "\\/");
+                            temp = temp.replace(/\'/g, "\\\'");
+                            temp = temp.replace(/\"/g, "\\\"")
+                            temp = temp.replace(/\r/g, "");
+                            var _dw = "";
+                            var arrdw = document.getElementsByName("dwrite");
+                            if (arrdw[0].checked) {
+                                _dw = "document.writeln";
+                            } else {
+                                _dw = "document.write";
+                            }
+                            if (document.getElementById("addre").checked) {
+                                var arroR = temp.split('\n');
+                                arroR = arroR.join("\");\n" + _dw + "(\"");
+                                var arroR2 = temp.split('\n');
+                                arroR2 = arroR2.join("\";\nstrTemp=strTemp + \"");
+                                document.getElementById("oResult").value = "<scr" + "ipt language=\"javascript\" type=\"text/javascript\">\n" + _dw + "(\"" + arroR + "\");\n</scr" + "ipt>";
+                                document.getElementById("oResult2").value = "<scr" + "ipt language=\"javascript\" type=\"text/javascript\">\nvar strTemp=\"\";\n" + "strTemp=strTemp + \"" + arroR2 + "\";" + "\n" + _dw + "(strTemp);\n</scr" + "ipt>";
+                            } else {
+                                var arroR = temp.replace(/\n/g, "");
+                                var arroR2 = temp.replace(/\n/g, "");
+                                document.getElementById("oResult").value = "<scr" + "ipt language=\"javascript\" type=\"text/javascript\">\n" + _dw + "(\"" + arroR + "\");\n</scr" + "ipt>";
+                                document.getElementById("oResult2").value = "<scr" + "ipt language=\"javascript\" type=\"text/javascript\">\nvar strTemp=\"" + arroR2 + "\";" + "\n" + _dw + "(strTemp);\n</scr" + "ipt>";
+                            }
+                        }
+                    </script>
+                    <div class="toolbox">
+                        <form action="">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td class="tname"><b>html转js</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>请将html源代码拷贝到下面:</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <TEXTAREA id=oSource cols="88" rows="10"></TEXTAREA>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>下面是相应的js代码格式:</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <TEXTAREA id=oResult cols="88" rows="10" readOnly></TEXTAREA>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>js代码的另一种输出格式:</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <TEXTAREA id=oResult2 cols="88" rows="10" readOnly></TEXTAREA>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type=button onclick=change() value=转换> <input type="reset" value=初始>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="checkbox" id="addre" checked> 每行添加输出函数</td>
+                                    </tr>
+                                    <tr>
+                                        <td>输出代码选择:<input type="radio" name="dwrite" checked> document.writeln(); <input type="radio" name="dwrite"> document.write();</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p><a style="text-decoration: none;color: #000" href="http://loveconvert.com" target="_blank">友情链接：Loveconvert</a></p>
+        </div>
+    </div>
+</body>
+
+</html>

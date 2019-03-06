@@ -1,0 +1,605 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>体积换算</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        body {
+            margin: 0px;
+            font-size: 12px;
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+        
+        input,
+        textarea,
+        select {
+            font-size: 12px;
+        }
+        
+        ul,
+        li {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #000000;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+            color: #FF0000;
+        }
+        
+        img {
+            border: 0px;
+        }
+        
+        .main {
+            width: 70%;
+            margin: 0 auto;
+        }
+        
+        .logoBox {
+            height: 100px;
+        }
+        
+        .content {
+            margin: 0px auto;
+        }
+        
+        .navTopTit {
+            height: 26px;
+            line-height: 26px;
+            background-color: #999999;
+        }
+        
+        .navIntro {
+            float: right;
+            padding-right: 20px;
+            color: #FFFFFF;
+        }
+        
+        .navIntro a {
+            color: #FFFFFF;
+        }
+        
+        .navIntro a:hover {
+            color: #FFFFFF;
+            text-decoration: underline;
+        }
+        
+        .box {
+            background-color: #FFFFFF;
+        }
+        
+        .tool {
+            padding: 12px 20px 20px 20px;
+        }
+        
+        .tool input {
+            padding: 1px 5px;
+        }
+        
+        .tool textarea {
+            padding: 5px;
+        }
+        
+        .tool table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        .tool td {
+            border: 1px solid #ccc;
+            text-align: center;
+            padding: 5px;
+        }
+        
+        .tinfo {
+            margin-bottom: 20px;
+            background-color: #EEEEEE;
+            border: 1px solid #ddd;
+            padding: 18px;
+            color: #666666;
+        }
+        
+        .tinfo b {
+            font-size: 14px;
+        }
+        
+        .tname {
+            background-color: #E8E8E8;
+            color: #666666;
+            font-size: 16px;
+            height: 30px;
+        }
+        
+        .tabt {
+            height: 8px;
+        }
+        
+        .tabb {
+            height: 8px;
+            background-color: #E8E8E8;
+        }
+        
+        .tnameb {
+            height: 8px;
+        }
+        
+        .toolbox {
+            text-align: center;
+            margin: 0px auto;
+            line-height: 16px;
+        }
+        
+        .toolbox div {
+            text-align: center;
+        }
+        
+        .tooltime {
+            margin-top: 20px;
+            background-color: #EEEEEE;
+            border: 1px solid #00DDFF;
+            padding: 18px;
+            color: #666666;
+        }
+        
+        .tooltime b {
+            font-size: 14px;
+        }
+        
+        .fright {
+            float: right;
+            text-align: right;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 10px;
+            font-size: 15px;
+        }
+        
+        .f {
+            position: absolute;
+            top: -999px;
+            left: -999px
+        }
+        
+        input[size] {
+            width: 70%;
+            border: 1px solid rgb(116, 116, 116);
+            outline: none;
+            padding: 5px;
+        }
+        
+        input[type=button] {
+            background: rgb(132, 198, 255);
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            color: #fff;
+            margin: 1px;
+            outline: none;
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+        
+        input[type=button]:active {
+            background: rgb(103, 186, 255);
+        }
+        
+        input[value=数据重置] {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="content">
+            <div class="box">
+                <div class="tool">
+                    <div class="tinfo"><b>体积换算：</b> 可实现立方米(Cubic meter)、公石(hectoliter)、十升(dekaliter)、立方分米(Cubic dm)、升(liter)、分升(deciliter)、厘升(centiliter)、立方厘米(Cubic cm)、毫升(milliliter)、立方毫米(Cubic millimeter)、桶(Barrel)、蒲式耳(Bushel)、配克(Peck)、夸脱(Quart)、品脱(Pint)、加仑(Gallon)、盎司(Ounce)、打兰(dram)、量滴(Minim)、立方码(Cubic
+                        yard)、立方英尺(Cubic foot)、立方英寸(Cubic inch)间的互转互换。
+                    </div>
+                    <script language="javascript" type="text/javascript">
+                        function VOL_MEASURES() {
+                            this.mCubic_meter = 1000
+                            this.mHectoliter = 100
+                            this.mDekaliter = 10
+                            this.mLiter = 1
+                            this.mDeciliter = 0.1
+                            this.mCentiliter = 0.01
+                            this.mMilliliter = 0.001
+                            this.mCubic_millimeter = 0.000001
+                            this.mcTable_spoon = 0.015
+                            this.mcTea_spoon = 0.005
+                            this.uscCubic_inch = 0.016387064
+                            this.uscAcre_foot = 43560 * 1728 * this.uscCubic_inch
+                            this.uscCubic_yard = 27 * 1728 * this.uscCubic_inch
+                            this.uscCubic_foot = 1728 * this.uscCubic_inch
+                            this.uslGallon = 231 * this.uscCubic_inch
+                            this.uslBarrel = 42 * this.uslGallon
+                            this.uslQuart = this.uslGallon / 4
+                            this.uslPint = this.uslGallon / 8
+                            this.uslGill = this.uslGallon / 32
+                            this.uslFluid_ounce = this.uslGallon / 128
+                            this.uslFluid_dram = this.uslGallon / 1024
+                            this.uslMinim = this.uslFluid_ounce / 61440
+                            this.usdBarrel = 7056 * this.uscCubic_inch
+                            this.usdBushel = 2150.42 * this.uscCubic_inch
+                            this.usdPeck = this.usdBushel / 4
+                            this.usdQuart = this.usdBushel / 32
+                            this.usdPint = this.usdBushel / 64
+                            this.uscCup = 8 * this.uslFluid_ounce
+                            this.uscTable_spoon = this.uslFluid_ounce / 2
+                            this.uscTea_spoon = this.uslFluid_ounce / 6
+                            this.briGallon = 4.54609
+                            this.briBarrel = 36 * this.briGallon
+                            this.briBushel = 8 * this.briGallon
+                            this.briPint = this.briGallon / 8
+                            this.briFluid_ounce = this.briGallon / 160
+                        }
+
+                        var vol_data = new VOL_MEASURES();
+
+                        function checkNum(str) {
+                            for (var i = 0; i < str.length; i++) {
+                                var ch = str.substring(i, i + 1)
+
+                                if (ch != "." && ch != "+" && ch != "-" && ch != "e" && ch != "E" && (ch < "0" || ch > "9")) {
+                                    alert("请输入有效的数字");
+                                    return false;
+                                }
+                            }
+                            return true
+
+                        }
+
+                        function normalize(what, digits) {
+                            var str = "" + what;
+
+                            var pp = Math.max(str.lastIndexOf("+"), str.lastIndexOf("-"));
+                            var idot = str.indexOf(".");
+
+                            if (idot >= 1) {
+                                var ee = (pp > 0) ? str.substring(pp - 1, str.length) : "";
+                                digits += idot;
+                                if (digits >= str.length)
+                                    return str;
+                                if (pp > 0 && digits >= pp)
+                                    digits -= pp;
+                                var c = eval(str.charAt(digits));
+                                var ipos = digits - 1;
+                                if (c >= 5) {
+                                    while (str.charAt(ipos) == "9")
+                                        ipos--;
+                                    if (str.charAt(ipos) == ".") {
+                                        var nc = eval(str.substring(0, idot)) + 1;
+                                        if (nc == 10 && ee.length > 0) {
+                                            nc = 1;
+                                            ee = "e" + (eval(ee.substring(1, ee.length)) + 1);
+                                        }
+                                        return "" + nc + ee;
+                                    }
+                                    return str.substring(0, ipos) + (eval(str.charAt(ipos)) + 1) + ee;
+                                } else
+                                    var ret = str.substring(0, digits) + ee;
+                                for (var i = 0; i < ret.length; i++)
+                                    if (ret.charAt(i) > "0" && ret.charAt(i) <= "9")
+                                        return ret;
+                                return str;
+                            }
+                            return str;
+                        }
+
+                        function compute(obj, val, data) {
+                            if (obj[val].value) {
+                                var uval = 0;
+                                uval = obj[val].value * data[val];
+                                if ((uval >= 0) && (obj[val].value.indexOf("-") != -1)) {
+                                    uval = -uval; // *** Hack for Opera 4.0  2000-10-14
+                                }
+                                for (var i in data)
+                                    obj[i].value = normalize(uval / data[i], 8);
+                            }
+                        }
+
+                        function resetValues(form, data) {
+                            for (var i in data)
+                                form[i].value = "";
+                        }
+
+                        function resetAll(form) {
+                            resetValues(form, vol_data);
+                        }
+                    </script>
+                    <div class="toolbox">
+                        <form action="">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td colspan=4 class="tname"><b>体 积 换 算</b></td>
+                                    </tr>
+                                    <TR>
+                                        <TD colSpan=4>
+                                            <B>公 制</B>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD>立方米(m
+                                            <SUP>3</SUP>)</TD>
+                                        <TD>
+                                            <INPUT size=12 name=mCubic_meter>
+                                            <INPUT onclick="if (checkNum(mCubic_meter.value)) compute(this.form,mCubic_meter.name,vol_data)" type=button value=换算 name=mCubic_meter_bt>
+                                        </TD>
+                                        <TD>公石(hl)</TD>
+                                        <TD>
+                                            <INPUT size=12 name=mHectoliter>
+                                            <INPUT onclick="if (checkNum(mHectoliter.value)) compute(this.form,mHectoliter.name,vol_data)" type=button value=换算 name=mHectoliter_bt>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD>十升(dal)</TD>
+                                        <TD>
+                                            <INPUT size=12 name=mDekaliter>
+                                            <INPUT onclick="if (checkNum(mDekaliter.value)) compute(this.form,mDekaliter.name,vol_data)" type=button value=换算 name=mDekaliter_bt>
+                                        </TD>
+                                        <TD>立方分米(dm
+                                            <SUP>3</SUP>)=升(l)</TD>
+                                        <TD>
+                                            <INPUT size=12 name=mLiter>
+                                            <INPUT onclick="if (checkNum(mLiter.value)) compute(this.form,mLiter.name,vol_data)" type=button value=换算 name=mLiter_bt>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD>分升(dl)</TD>
+                                        <TD>
+                                            <INPUT size=12 name=mDeciliter>
+                                            <INPUT onclick="if (checkNum(mDeciliter.value)) compute(this.form,mDeciliter.name,vol_data)" type=button value=换算 name=mDeciliter_bt>
+                                        </TD>
+                                        <TD>厘升(cl)</TD>
+                                        <TD>
+                                            <INPUT size=12 name=mCentiliter>
+                                            <INPUT onclick="if (checkNum(mCentiliter.value)) compute(this.form,mCentiliter.name,vol_data)" type=button value=换算 name=mCentiliter_bt>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD>立方厘米(cm
+                                            <SUP>3</SUP>)=毫升(ml)</TD>
+                                        <TD>
+                                            <INPUT size=12 name=mMilliliter>
+                                            <INPUT onclick="if (checkNum(mMilliliter.value)) compute(this.form,mMilliliter.name,vol_data)" type=button value=换算 name=mMilliliter_bt>
+                                        </TD>
+                                        <TD>立方毫米(mm
+                                            <SUP>3</SUP>)</TD>
+                                        <TD>
+                                            <INPUT size=12 name=mCubic_millimeter>
+                                            <INPUT onclick="if (checkNum(mCubic_millimeter.value)) compute(this.form,mCubic_millimeter.name,vol_data)" type=button value=换算 name=mCubic_millimeter_bt>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD colSpan=4>
+                                            <B>美制干量</B>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD>桶</TD>
+                                        <TD>
+                                            <INPUT size=12 name=usdBarrel>
+                                            <INPUT onclick="if (checkNum(usdBarrel.value)) compute(this.form,usdBarrel.name,vol_data)" type=button value=换算 name=usdBarrel_bt>
+                                        </TD>
+                                        <TD>蒲式耳(bu)</TD>
+                                        <TD>
+                                            <INPUT size=12 name=usdBushel>
+                                            <INPUT onclick="if (checkNum(usdBushel.value)) compute(this.form,usdBushel.name,vol_data)" type=button value=换算 name=usdBushel_bt>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD>配克(pk)</TD>
+                                        <TD>
+                                            <INPUT size=12 name=usdPeck>
+                                            <INPUT onclick="if (checkNum(usdPeck.value)) compute(this.form,usdPeck.name,vol_data)" type=button value=换算 name=usdPeck_bt>
+                                        </TD>
+                                        <TD>夸脱(qt)</TD>
+                                        <TD>
+                                            <INPUT size=12 name=usdQuart>
+                                            <INPUT onclick="if (checkNum(usdQuart.value)) compute(this.form,usdQuart.name,vol_data)" type=button value=换算 name=usdQuart_bt>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD>品脱(pt)</TD>
+                                        <TD>
+                                            <INPUT size=12 name=usdPint>
+                                            <INPUT onclick="if (checkNum(usdPint.value)) compute(this.form,usdPint.name,vol_data)" type=button value=换算 name=usdPint_bt>
+                                        </TD>
+                                        <TD colSpan=2></TD>
+                                    </TR>
+                                    <TR>
+                                        <TD colSpan=4>
+                                            <B>英制液量和干量</B>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD>桶</TD>
+                                        <TD>
+                                            <INPUT size=12 name=briBarrel>
+                                            <INPUT onclick="if (checkNum(briBarrel.value)) compute(this.form,briBarrel.name,vol_data)" type=button value=换算 name=briBarrel_bt>
+                                        </TD>
+                                        <TD>蒲式耳</TD>
+                                        <TD>
+                                            <INPUT size=12 name=briBushel>
+                                            <INPUT onclick="if (checkNum(briBushel.value)) compute(this.form,briBushel.name,vol_data)" type=button value=换算 name=briBushel_bt>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD>加仑(bal)</TD>
+                                        <TD>
+                                            <INPUT size=12 name=briGallon>
+                                            <INPUT onclick="if (checkNum(briGallon.value)) compute(this.form,briGallon.name,vol_data)" type=button value=换算 name=briGallon_bt>
+                                        </TD>
+                                        <TD>品脱(pt)</TD>
+                                        <TD>
+                                            <INPUT size=12 name=briPint>
+                                            <INPUT onclick="if (checkNum(briPint.value)) compute(this.form,briPint.name,vol_data)" type=button value=换算 name=briPint_bt>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD>液量盎司(fl oz)</TD>
+                                        <TD>
+                                            <INPUT size=12 name=briFluid_ounce>
+                                            <INPUT onclick="if (checkNum(briFluid_ounce.value)) compute(this.form,briFluid_ounce.name,vol_data)" type=button value=换算 name=briFluid_ounce_bt>
+                                        </TD>
+                                        <TD colSpan=2></TD>
+                                    </TR>
+                                    <TR>
+                                        <TD colSpan=4>
+                                            <B>公制烹调制式</B>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD>汤勺(Table spoon)</TD>
+                                        <TD>
+                                            <INPUT size=12 name=mcTable_spoon>
+                                            <INPUT onclick="if (checkNum(mcTable_spoon.value)) compute(this.form,mcTable_spoon.name,vol_data)" type=button value=换算 name=mcTable_spoon_bt>
+                                        </TD>
+                                        <TD>调羹(Tea spoon)</TD>
+                                        <TD>
+                                            <INPUT size=12 name=mcTea_spoon>
+                                            <INPUT onclick="if (checkNum(mcTea_spoon.value)) compute(this.form,mcTea_spoon.name,vol_data)" type=button value=换算 name=mcTea_spoon_bt>
+                                        </TD>
+                                    </TR>
+                                    <TR>
+                                        <TD colSpan=4>
+                                            <B>美制烹调制式</B>
+                                        </TD>
+                                        <TR>
+                                            <TD>汤勺(Tbs)</TD>
+                                            <TD>
+                                                <INPUT size=12 name=uscTable_spoon>
+                                                <INPUT onclick="if (checkNum(uscTable_spoon.value)) compute(this.form,uscTable_spoon.name,vol_data)" type=button value=换算 name=uscTable_spoon_bt>
+                                            </TD>
+                                            <TD>调羹(tsp)</TD>
+                                            <TD>
+                                                <INPUT size=12 name=uscTea_spoon>
+                                                <INPUT onclick="if (checkNum(uscTea_spoon.value)) compute(this.form,uscTea_spoon.name,vol_data)" type=button value=换算 name=uscTea_spoon_bt>
+                                            </TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>杯(fl oz)</TD>
+                                            <TD>
+                                                <INPUT size=12 name=uscCup>
+                                                <INPUT onclick="if (checkNum(uscCup.value)) compute(this.form,uscCup.name,vol_data)" type=button value=换算 name=uscCup_bt>
+                                            </TD>
+                                            <TD colSpan=2></TD>
+                                        </TR>
+                                        <TR>
+                                            <TD colSpan=4>
+                                                <B>美制液量</B>
+                                            </TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>桶[42加仑]</TD>
+                                            <TD>
+                                                <INPUT size=12 name=uslBarrel>
+                                                <INPUT onclick="if (checkNum(uslBarrel.value)) compute(this.form,uslBarrel.name,vol_data)" type=button value=换算 name=uslBarrel_bt>
+                                            </TD>
+                                            <TD>加仑(gal)</TD>
+                                            <TD>
+                                                <INPUT size=12 name=uslGallon>
+                                                <INPUT onclick="if (checkNum(uslGallon.value)) compute(this.form,uslGallon.name,vol_data)" type=button value=换算 name=uslGallon_spoon_bt>
+                                            </TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>夸脱(qt)</TD>
+                                            <TD>
+                                                <INPUT size=12 name=uslQuart>
+                                                <INPUT onclick="if (checkNum(uslQuart.value)) compute(this.form,uslQuart.name,vol_data)" type=button value=换算 name=uslQuart_bt>
+                                            </TD>
+                                            <TD>品脱(pt)</TD>
+                                            <TD>
+                                                <INPUT size=12 name=uslPint>
+                                                <INPUT onclick="if (checkNum(uslPint.value)) compute(this.form,uslPint.name,vol_data)" type=button value=换算 name=uslPint_bt>
+                                            </TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>及耳(gi)</TD>
+                                            <TD>
+                                                <INPUT size=12 name=uslGill>
+                                                <INPUT onclick="if (checkNum(uslGill.value)) compute(this.form,uslGill.name,vol_data)" type=button value=换算 name=uslGill_bt>
+                                            </TD>
+                                            <TD>液量盎司(fl oz)</TD>
+                                            <TD>
+                                                <INPUT size=12 name=uslFluid_ounce>
+                                                <INPUT onclick="if (checkNum(uslFluid_ounce.value)) compute(this.form,uslFluid_ounce.name,vol_data)" type=button value=换算 name=uslFluid_ounce_bt>
+                                            </TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>液量打兰(fl dr)</TD>
+                                            <TD>
+                                                <INPUT size=12 name=uslFluid_dram>
+                                                <INPUT onclick="if (checkNum(uslFluid_dram.value)) compute(this.form,uslFluid_dram.name,vol_data)" type=button value=换算 name=uslFluid_dram_bt>
+                                            </TD>
+                                            <TD>量滴(min)</TD>
+                                            <TD>
+                                                <INPUT size=12 name=uslMinim>
+                                                <INPUT onclick="if (checkNum(uslMinim.value)) compute(this.form,uslMinim.name,vol_data)" type=button value=换算 name=uslMinim_bt>
+                                            </TD>
+                                        </TR>
+                                        <TR>
+                                            <TD colSpan=4>
+                                                <B>美英同制体积计量</B>
+                                            </TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>亩英尺</TD>
+                                            <TD>
+                                                <INPUT size=12 name=uscAcre_foot>
+                                                <INPUT onclick="if (checkNum(uscAcre_foot.value)) compute(this.form,uscAcre_foot.name,vol_data)" type=button value=换算 name=uscAcre_foot_bt>
+                                            </TD>
+                                            <TD>立方码</TD>
+                                            <TD>
+                                                <INPUT size=12 name=uscCubic_yard>
+                                                <INPUT onclick="if (checkNum(uscCubic_yard.value)) compute(this.form,uscCubic_yard.name,vol_data)" type=button value=换算 name=uscCubic_yard_bt>
+                                            </TD>
+                                        </TR>
+                                        <TR>
+                                            <TD>立方英尺</TD>
+                                            <TD>
+                                                <INPUT size=12 name=uscCubic_foot>
+                                                <INPUT onclick="if (checkNum(uscCubic_foot.value)) compute(this.form,uscCubic_foot.name,vol_data)" type=button value=换算 name=uscCubic_foot_bt>
+                                            </TD>
+                                            <TD>立方英寸</TD>
+                                            <TD>
+                                                <INPUT size=12 name=uscCubic_inch>
+                                                <INPUT onclick="if (checkNum(uscCubic_inch.value)) compute(this.form,uscCubic_inch.name,vol_data)" type=button value=换算 name=uscCubic_inch_bt>
+                                            </TD>
+                                        </TR>
+                                        <TR>
+                                            <TD colspan="4">
+                                                <INPUT onclick=resetAll(this.form) type=button value=数据重置 name=res7>
+                                            </TD>
+                                        </TR>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p><a style="text-decoration: none;color: #000" href="http://loveconvert.com" target="_blank">友情链接：Loveconvert</a></p>
+        </div>
+    </div>
+</body>
+
+</html>

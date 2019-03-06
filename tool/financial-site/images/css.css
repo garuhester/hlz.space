@@ -1,0 +1,93 @@
+@charset "utf-8";
+/* CSS Document */
+body,td,th {
+	font-size: 12px;
+	color: #333;
+	font-family:"微软雅黑";
+}
+body,div {
+	background-color: #f9f9f9;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+img{
+	border:none;
+}
+.clear{
+	clear:both;
+}
+a {
+	color:#0CF;
+	text-decoration:none;
+}
+a:hover {
+	color:#ab0003;
+	text-decoration:none;
+}
+.px20{
+	height:20px;
+	clear:both;
+}
+.web980{
+	width:980px;
+	margin:0px auto;
+	padding-top:10px;
+}
+.logo{
+	text-align:center;
+	font-size:30px;
+	height:30px;
+	margin-bottom:10px;
+}
+
+.kd151{
+	width:151px;
+	height:122px;
+	float:left;
+	text-align:center;
+	font-size:14px;
+	border:1px solid #ddd;
+	margin:10px 5px;
+	display:inline;
+	overflow:hidden;
+	background:url(kd_bg.jpg) repeat-x;
+}
+.kd_img {
+	width:149px;
+	height:52px;
+	padding:1px;
+	display:block;
+	border-bottom:1px solid #dfdfdf;
+}
+.kd_img img {
+	width:149px;
+	height:52px;
+}
+
+.kd_title{
+	height:32px;
+	line-height:32px;
+	font-size:14px;
+	text-align:center;
+	font-size:15px;
+	background:url(kd_s_bg.jpg) repeat-x;
+}
+
+.kd_font {
+	color:#666;
+	font-size:13px;
+	line-height:24px;
+	padding-top:5px;
+	font-family:"宋体";
+	background:url(kd_x_bg.jpg) repeat-x;
+}
+
+
+.footer{
+	text-align:center;
+	font-family:"微软雅黑";
+	line-height:26px;
+	font-size:14px;
+}

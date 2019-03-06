@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>在线中文汉字转换拼音工具</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/css.css" rel="stylesheet">
+    <script src="js/pinyin.js"></script>
+    <link rel="shortcut icon" href="img/logo.jpg">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="container">
+        <div class="row text-center topmarg">
+            <p><img src="img/logo.jpg"></p>
+            <p>
+                <h2>在线中文汉字转换拼音工具</h2></p>
+            <hr>
+        </div>
+    </div>
+    <div class="container">
+        <blockquote>
+            <p>工具介绍：将我们需要转换的汉字贴到上面文本框中，可以直接转换带有声调的拼音。</p>
+        </blockquote>
+        <h4><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 输入需要转换的汉字</h4>
+        <hr>
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <div class="laobuluo_pinyin">
+                    <textarea id="content" class="form-control" rows="10">请把你需要查询的内容粘贴在这里。</textarea>
+                    <br>
+                    <input class="btn btn-default" id="conv" type="button" value="转换成拼音" onclick="trans();" />
+                    <input class="btn btn-default" id="remove" type="button" value="清空结果" onclick="remove();" />
+                    <br>
+                    <textarea id="result" class="form-control" rows="10" style="margin-top: 20px"></textarea>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div style="text-align:center;">
+            <p><a style="text-decoration: none;color: #fff" href="http://loveconvert.com" target="_blank">友情链接：Loveconvert</a></p>
+        </div>
+    </div>
+  <!-- JiaThis Button BEGIN -->
+            <script type="text/javascript">
+            var jiathis_config = {data_track_clickback:'true'};
+            </script>
+            <script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0&amp;uid=2140259" charset="utf-8"></script>
+            <!-- JiaThis Button END -->
+</body>
+
+</html>

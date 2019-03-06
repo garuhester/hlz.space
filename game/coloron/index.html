@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>COLORON</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta property="og:site_name" content="CodePen">
+    <meta property="og:description" content="A game made to inspire developers to use GSAP, ES6 and Flexbox">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="favicon.png" />
+</head>
+
+<body>
+  <!-- JiaThis Button BEGIN -->
+            <script type="text/javascript">
+            var jiathis_config = {data_track_clickback:'true'};
+            </script>
+            <script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0&amp;uid=2140259" charset="utf-8"></script>
+            <!-- JiaThis Button END -->
+    <div class="splash"></div>
+    <div class="container">
+        <div class="start-game game-full-flex" id="start-game">
+            <div class="start-game-top"></div>
+            <div class="logo-holder">
+                <p class="logo"> <span>C</span> <span>o</span> <span>l</span> <span>o</span> <span>r</span> <span>o</span> <span>n</span> </p>
+                <a class="play-button" href="#" onClick="game.start()">Play</a>
+                <h4 class="hint">注意: 红色优先</h4>
+            </div>
+            <div class="how-to-play">
+                <div class="section section-1">
+                    <h4>弹跳球<br>改变颜色</h4>
+                    <div class="content">
+                        <div class="ball-demo" id="ball-demo"></div>
+                    </div>
+                </div>
+                <div class="section section-2">
+                    <h4>
+                    点击栏切换颜色<br>
+                    (红，黄，紫)
+                    </h4>
+                    <div class="content">
+                        <div class="bar bar-1" data-index="0"></div>
+                        <div class="bar bar-2"></div>
+                        <div class="bar bar-3"></div>
+                    </div>
+                </div>
+                <div class="section section-3">
+                    <h4>总是匹配<br>球棒颜色</h4>
+                    <div class="content">
+                        <div class="ball-demo" id="ball-demo"></div>
+                        <div class="bar bar-1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="stop-game game-full-flex">
+            <div class="score-container">
+                <h1>成 绩</h1>
+                <div class="final-score"></div>
+                <div class="result"></div>
+                <h4>挑战朋友的鸣叫</h4>
+                <button class="share">鸣叫</button>
+                <div> <a class="play-again" href="#" onClick="game.start()">再玩一次</a> <a class="main-menu" href="#" onClick="game.intro()">菜单</a> </div>
+            </div>
+        </div>
+        <div class="small-glows"></div>
+        <div class="glow">
+            <div class="sun"></div>
+        </div>
+        <div class="waves">
+            <div class="top_wave"></div>
+            <div class="wave1"></div>
+            <div class="wave2"></div>
+            <div class="wave3"></div>
+            <div class="wave4"></div>
+        </div>
+        <div class="mounts">
+            <div class="mount1"></div>
+            <div class="mount2"></div>
+        </div>
+        <div class="clouds"></div>
+        <div class="scene">
+            <div class="learn-to-play">点击栏改变颜色！</div>
+            <div class="score" id="score"></div>
+            <div class="ball-holder"></div>
+            <div class="sticks" id="sticks"></div>
+        </div>
+        <div class="noise"></div>
+    </div>
+    <div style="text-align:center;position: relative;font-size: 20px;color: #fff">
+        <p>
+            <a href="http://loveconvert.com" target="_blank" style="text-decoration: none;color: #fff">
+                友情链接：Loveconvert
+            </a>
+        </p>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src='js/TweenMax.min.js'></script>
+    <script src="js/index.js"></script>
+    <script src="http://cdn.bootcss.com/layer/3.0.1/layer.min.js"></script>
+    <script type="text/javascript">
+    $('.share').on('click', function() {
+        var score = $('.final-score').html();
+        layer.confirm('你要去哪儿呼叫你的朋友？', {
+            btn: ['QQ空间', '微博'] //按钮
+        }, function() {
+            window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://loveconvert.com&title=我的分数:' + score + ',你也来挑战我吧:)&desc=&summary=&site=');
+        }, function() {
+            window.open('http://service.weibo.com/share/share.php?url=http://loveconvert.com&title=我的分数:' + score + ',你也来挑战我吧:)&pic=&appkey=');
+        });
+    });
+    </script>
+</body>
+
+</html>

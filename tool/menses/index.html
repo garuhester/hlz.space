@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>女性安全期月经周期计算器</title>
+    <link type="text/css" rel="stylesheet" href="css/public_v2.css" />
+    <link type="text/css" rel="stylesheet" href="css/base.css" />
+    <link type="text/css" rel="stylesheet" href="css/blue.css" />
+    <link href="css/userLogin.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/jquery-1.7.2.js"></script>
+    <script type="text/javascript" src="js/newfemale.js"></script>
+    <script language='javascript' src="js/userLogin.js"></script>
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <link rel="shortcut icon" href="favicon.png">
+</head>
+
+<body>
+    <INPUT style="DISPLAY: none" id=nowElement type=hidden>
+    <div class="wrapper">
+        <!-- header end -->
+        <!-- main -->
+        <div class="main">
+            <div class="mod_2b">
+                <h2>女性月经周期与排卵期计算器</h2>
+                <div class="health clearfix">
+                    <div class="mod_1b mod_safe">
+                        <div class="time_lag clearfix">
+                            <span>平常两次月经大概相隔：</span>
+                            <a class="minus" onclick='female.fallOff();'></a>
+                            <input type="text" id='minMensesPriod' readonly value="28" />
+                            <INPUT type='hidden' id=minMensesing class=circleCss value=5>
+                            <a onclick='female.increase();' class="plus"></a>
+                            <a onclick='female.creset();' id='acrest' class="again" style="display:none">重新测试</a>
+                        </div>
+                        <div class="safe_detail" id='womensafeDateCon'>
+                            <div class="safe_calendar" id='chosecal'>
+                                <span class="date_first" id='popCss'>请点击选择月经第一天</span>
+                                <div class="date_select">
+                                    <span class="year" id="leftYear">2012</span>
+                                    <b>年</b>
+                                    <a href='javascript:void(0);' id='yearLink'></a>
+                                    <span id='leftMonth' class="month">10</span>
+                                    <b>月</b>
+                                    <a href='javascript:void(0);' id='monthLink' class=""></a>
+                                </div>
+                                <ul class="date_detail" id='leftTable'>
+                                    <li class="week">日</li>
+                                    <li class="week">一</li>
+                                    <li class="week">二</li>
+                                    <li class="week">三</li>
+                                    <li class="week">四</li>
+                                    <li class="week">五</li>
+                                    <li class="week">六</li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                            <div class="safe_calendar safe_calendar_right" style='display:none' id='rightCal'>
+                                <div class="date_select">
+                                    <span class="year" id='rightYear'>2012</span>
+                                    <b>年</b>
+                                    <a href='javascript:void(0);' id="rYearLink"></a>
+                                    <span class="month" id='rightMonth'>10</span>
+                                    <b>月</b>
+                                    <a href='javascript:void(0);' id="rMonthLink"></a>
+                                </div>
+                                <ul class="date_detail" id='rightTable'>
+                                    <li class="week">日</li>
+                                    <li class="week">一</li>
+                                    <li class="week">二</li>
+                                    <li class="week">三</li>
+                                    <li class="week">四</li>
+                                    <li class="week">五</li>
+                                    <li class="week">六</li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                    <li></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="safe_calendar_tips">
+                        <li id="aZlue"><em class="aBlue"></em>所选日期</li>
+                        <li id="aBlue"><em class="aBlue"></em>所选日期</li>
+                        <li id="aGreen"><em class="aGreen"></em>安全期: 受孕机率较小，可不必采用避孕药物和避孕工具。</li>
+                        <li id="aRed"><em class="aRed"></em>排卵期: 排卵日及其前5天和后4天为排卵期，此时间段内受孕的可能性较大。</li>
+                        <li id="aYellow"><em class="aYellow"></em>月经期: 请注意经期卫生</li>
+                    </ul>
+                </div>
+                <!-- footer end -->
+            </div>
+            <div style="text-align:center;padding: 10px">
+                <p><a style="text-decoration: none;color: #000;font-size: 15px;" href="http://loveconvert.com" target="_blank">友情链接：Loveconvert</a></p>
+            </div>
+            <!-- JiaThis Button BEGIN -->
+            <script type="text/javascript">
+            var jiathis_config = { data_track_clickback: 'true' };
+            </script>
+            <script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?move=0&amp;uid=2140259" charset="utf-8"></script>
+            <!-- JiaThis Button END -->
+</body>
+
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>进制转换</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        body {
+            margin: 0px;
+            font-size: 12px;
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+        
+        input,
+        textarea,
+        select {
+            font-size: 12px;
+        }
+        
+        ul,
+        li {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #000000;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+            color: #FF0000;
+        }
+        
+        img {
+            border: 0px;
+        }
+        
+        .main {
+            width: 70%;
+            margin: 0 auto;
+        }
+        
+        .logoBox {
+            height: 100px;
+        }
+        
+        .content {
+            margin: 0px auto;
+        }
+        
+        .navTopTit {
+            height: 26px;
+            line-height: 26px;
+            background-color: #999999;
+        }
+        
+        .navIntro {
+            float: right;
+            padding-right: 20px;
+            color: #FFFFFF;
+        }
+        
+        .navIntro a {
+            color: #FFFFFF;
+        }
+        
+        .navIntro a:hover {
+            color: #FFFFFF;
+            text-decoration: underline;
+        }
+        
+        .box {
+            background-color: #FFFFFF;
+        }
+        
+        .tool {
+            padding: 12px 20px 20px 20px;
+        }
+        
+        .tool input {
+            padding: 1px 5px;
+        }
+        
+        .tool textarea {
+            padding: 5px;
+        }
+        
+        .tool table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        .tool td {
+            border: 1px solid #ccc;
+            text-align: center;
+            padding: 5px;
+        }
+        
+        .tinfo {
+            margin-bottom: 20px;
+            background-color: #EEEEEE;
+            border: 1px solid #ddd;
+            padding: 18px;
+            color: #666666;
+        }
+        
+        .tinfo b {
+            font-size: 14px;
+        }
+        
+        .tname {
+            background-color: #E8E8E8;
+            color: #666666;
+            font-size: 16px;
+            height: 30px;
+        }
+        
+        .tabt {
+            height: 8px;
+        }
+        
+        .tabb {
+            height: 8px;
+            background-color: #E8E8E8;
+        }
+        
+        .tnameb {
+            height: 8px;
+        }
+        
+        .toolbox {
+            text-align: center;
+            margin: 0px auto;
+            line-height: 16px;
+        }
+        
+        .toolbox div {
+            text-align: center;
+        }
+        
+        .tooltime {
+            margin-top: 20px;
+            background-color: #EEEEEE;
+            border: 1px solid #00DDFF;
+            padding: 18px;
+            color: #666666;
+        }
+        
+        .tooltime b {
+            font-size: 14px;
+        }
+        
+        .fright {
+            float: right;
+            text-align: right;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 10px;
+            font-size: 15px;
+        }
+        
+        .f {
+            position: absolute;
+            top: -999px;
+            left: -999px
+        }
+        
+        input[size] {
+            width: 70%;
+            border: 1px solid rgb(116, 116, 116);
+            outline: none;
+            padding: 5px;
+        }
+        
+        input[type=button] {
+            background: rgb(132, 198, 255);
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            color: #fff;
+            margin: 1px;
+            outline: none;
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+        
+        input[type=button]:active {
+            background: rgb(103, 186, 255);
+        }
+        
+        input[value=数据重置] {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="content">
+            <div class="box">
+                <div class="tool">
+
+
+                    <div class="tinfo"><b>进制转换：</b> 可以实现二进制到六十四进制各进制间的相互转换。
+                    </div>
+                    <script language="javascript" type="text/javascript">
+                        ss = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_@"
+
+                        function v10toX(n, m) {
+                            m = String(m).replace(/ /gi, "")
+                            if (m == "") return ""
+                            if (parseInt(m) != m) {
+                                alert("请输入整数！");
+                                return ""
+                            }
+                            var t = ""
+                            var a = ss.substr(0, n)
+                            while (m != 0) {
+                                var b = m % n
+                                t = a.charAt(b) + t
+                                m = (m - b) / n
+                            }
+                            return t
+                        }
+
+                        function vXto10(n, m) {
+                            m = String(m).replace(/ /gi, "")
+                            if (m == "") return ""
+                            var a = ss.substr(0, n)
+                            if (eval("m.replace(/[" + a + "]/gi,'')") != "") {
+                                alert("请输入" + n + "进制数！");
+                                return ""
+                            }
+                            var t = 0,
+                                c = 1
+                            for (var x = m.length - 1; x > -1; x--) {
+                                t += c * (a.indexOf(m.charAt(x)))
+                                c *= n
+                            }
+                            return t
+                        }
+
+
+                        function vXtoY(n, m, y) {
+                            a = vXto10(n * 1, m)
+                            if (a == "") return ""
+                            a = v10toX(y, a)
+                            return a
+                        }
+                    </script>
+
+                    <div class="toolbox">
+                        <form action="">
+                            <table border=1 cellpadding="8">
+                                <tr>
+                                    <td>
+                                        <table cellpadding="2">
+                                            <tr>
+                                                <td class="tname" colspan="2"><b>进 制 转 换</b></td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>10进制转成16进制：</b></td>
+                                                <td>
+                                                    <input type=button onClick="t1_16.value=v10toX(16,t1_10.value)" value=" 转 换 " name="button">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">十 进 制：
+                                                    <input type=text name=t1_10> → 十六进制：
+                                                    <input type=text name=t1_16 readonly>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table cellpadding="2">
+                                            <tr>
+                                                <td><b>16进制转成10进制：</b></td>
+                                                <td>
+                                                    <input type=button onClick="t2_10.value=vXto10(16,t2_16.value)" value=" 转 换 " name="button3">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">十六进制：
+                                                    <input type=text name=t2_16> → 十 进 制：
+                                                    <input type=text name=t2_10 readonly>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table cellpadding="2">
+                                            <tr>
+                                                <td><b>10进制转成2进制：</b></td>
+                                                <td>
+                                                    <input type=button onClick="t3_2.value=v10toX(2,t3_10.value)" value=" 转 换 " name="button4">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">十 进 制：
+                                                    <input type=text name=t3_10> → 二 进 制：
+                                                    <input type=text name=t3_2 readonly>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table cellpadding="2">
+                                            <tr>
+                                                <td><b>2进制转成10进制：</b></td>
+                                                <td>
+                                                    <input type=button onClick="t4_10.value=vXto10(2,t4_2.value)" value=" 转 换 " name="button5">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">二 进 制：
+                                                    <input type=text name=t4_2> → 十 进 制：
+                                                    <input type=text name=t4_10 readonly>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table cellpadding="2">
+                                            <tr>
+                                                <td><b>10进制转成64进制：</b></td>
+                                                <td>
+                                                    <input type=button onClick="t5_64.value=v10toX(64,t5_10.value)" value=" 转 换 " name="button6">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">十 进 制：
+                                                    <input type=text name=t5_10> → 六四进制：
+                                                    <input type=text name=t5_64 readonly>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table cellpadding="2">
+                                            <tr>
+                                                <td><b>64进制转成10进制：</b></td>
+                                                <td>
+                                                    <input type=button onClick="t6_10.value=vXto10(64,t6_64.value)" value=" 转 换 " name="button7">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">六四进制：
+                                                    <input type=text name=t6_64> → 十 进 制：
+                                                    <input type=text name=t6_10 readonly>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table cellpadding="2">
+                                            <tr>
+                                                <td><b>X进制转成Y进制：</b></td>
+                                                <td>
+                                                    <input type=button onClick="t7_y.value=vXtoY(s7nx.value,t7_x.value,s7ny.value)" value=" 转 换 " name="button2">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <select name="s7nx">
+							<script>
+								t = ""
+								for (x = 2; x < 65; x++)t += "<option value=" + x + ">" + x + "</option>"
+								document.write(t)
+							</script>
+						  </select> 进制
+                                                    <input name=t7_x type=text id="t7_x"> →
+                                                    <select name="s7ny">
+							<script>
+													t = ""
+													for (x = 2; x < 65; x++)t += "<option value=" + x + ">" + x + "</option>"
+													document.write(t)
+							</script>
+						  </select> 进制
+                                                    <input name=t7_y type=text id="t7_y" readonly>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p><a style="text-decoration: none;color: #000" href="http://loveconvert.com" target="_blank">友情链接：Loveconvert</a></p>
+        </div>
+    </div>
+</body>
+
+</html>

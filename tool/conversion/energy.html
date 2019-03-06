@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>能量换算</title>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        body {
+            margin: 0px;
+            font-size: 12px;
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+        
+        input,
+        textarea,
+        select {
+            font-size: 12px;
+        }
+        
+        ul,
+        li {
+            list-style: none;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #000000;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+            color: #FF0000;
+        }
+        
+        img {
+            border: 0px;
+        }
+        
+        .main {
+            width: 70%;
+            margin: 0 auto;
+        }
+        
+        .logoBox {
+            height: 100px;
+        }
+        
+        .content {
+            margin: 0px auto;
+        }
+        
+        .navTopTit {
+            height: 26px;
+            line-height: 26px;
+            background-color: #999999;
+        }
+        
+        .navIntro {
+            float: right;
+            padding-right: 20px;
+            color: #FFFFFF;
+        }
+        
+        .navIntro a {
+            color: #FFFFFF;
+        }
+        
+        .navIntro a:hover {
+            color: #FFFFFF;
+            text-decoration: underline;
+        }
+        
+        .box {
+            background-color: #FFFFFF;
+        }
+        
+        .tool {
+            padding: 12px 20px 20px 20px;
+        }
+        
+        .tool input {
+            padding: 1px 5px;
+        }
+        
+        .tool textarea {
+            padding: 5px;
+        }
+        
+        .tool table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        .tool td {
+            border: 1px solid #ccc;
+            text-align: center;
+            padding: 5px;
+        }
+        
+        .tinfo {
+            margin-bottom: 20px;
+            background-color: #EEEEEE;
+            border: 1px solid #ddd;
+            padding: 18px;
+            color: #666666;
+        }
+        
+        .tinfo b {
+            font-size: 14px;
+        }
+        
+        .tname {
+            background-color: #E8E8E8;
+            color: #666666;
+            font-size: 16px;
+            height: 30px;
+        }
+        
+        .tabt {
+            height: 8px;
+        }
+        
+        .tabb {
+            height: 8px;
+            background-color: #E8E8E8;
+        }
+        
+        .tnameb {
+            height: 8px;
+        }
+        
+        .toolbox {
+            text-align: center;
+            margin: 0px auto;
+            line-height: 16px;
+        }
+        
+        .toolbox div {
+            text-align: center;
+        }
+        
+        .tooltime {
+            margin-top: 20px;
+            background-color: #EEEEEE;
+            border: 1px solid #00DDFF;
+            padding: 18px;
+            color: #666666;
+        }
+        
+        .tooltime b {
+            font-size: 14px;
+        }
+        
+        .fright {
+            float: right;
+            text-align: right;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 10px;
+            font-size: 15px;
+        }
+        
+        .f {
+            position: absolute;
+            top: -999px;
+            left: -999px
+        }
+        
+        input[size] {
+            width: 70%;
+            border: 1px solid rgb(116, 116, 116);
+            outline: none;
+            padding: 5px;
+        }
+        
+        input[type=button] {
+            background: rgb(132, 198, 255);
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            color: #fff;
+            margin: 1px;
+            outline: none;
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+        }
+        
+        input[type=button]:active {
+            background: rgb(103, 186, 255);
+        }
+        
+        input[value=数据重置] {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="content">
+            <div class="box">
+                <div class="tool">
+                    <div class="tinfo"><b>能量换算：</b> 可实现在线焦耳(J)、公斤·米(kg·m)、米制马力·时(PS·h)、英制马力·时(HP·h)、千瓦·时(kW·h)、千卡(kcal)、英热单位(Btu)、英尺·磅(ft·lb)间的互转互换。
+                    </div>
+                    <script language="javascript" type="text/javascript">
+                        function HEAT_MEASURES() {
+                            this.Joule = 1
+                            this.Kgm = 9.80392157
+                            this.Psh = 2647603.9184538
+                            this.Hph = 2684563.7583893
+                            this.Kwh = 3599712.023038157
+                            this.Kcal = 4185.851820846
+                            this.Btu = 1055.0749103
+                            this.Ftlb = 1.3557483731
+                        }
+                        var heat_data = new HEAT_MEASURES();
+
+                        function checkNum(str) {
+                            for (var i = 0; i < str.length; i++) {
+                                var ch = str.substring(i, i + 1)
+                                if (ch != "." && ch != "+" && ch != "-" && ch != "e" && ch != "E" && (ch < "0" || ch > "9")) {
+                                    alert("请输入有效的数字");
+                                    return false;
+                                }
+                            }
+                            return true
+                        }
+
+                        function normalize(what, digits) {
+                            var str = "" + what;
+                            var pp = Math.max(str.lastIndexOf("+"), str.lastIndexOf("-"));
+                            var idot = str.indexOf(".");
+                            if (idot >= 1) {
+                                var ee = (pp > 0) ? str.substring(pp - 1, str.length) : "";
+                                digits += idot;
+                                if (digits >= str.length)
+                                    return str;
+                                if (pp > 0 && digits >= pp)
+                                    digits -= pp;
+                                var c = eval(str.charAt(digits));
+                                var ipos = digits - 1;
+                                if (c >= 5) {
+                                    while (str.charAt(ipos) == "9")
+                                        ipos--;
+                                    if (str.charAt(ipos) == ".") {
+                                        var nc = eval(str.substring(0, idot)) + 1;
+                                        if (nc == 10 && ee.length > 0) {
+                                            nc = 1;
+                                            ee = "e" + (eval(ee.substring(1, ee.length)) + 1);
+                                        }
+                                        return "" + nc + ee;
+                                    }
+                                    return str.substring(0, ipos) + (eval(str.charAt(ipos)) + 1) + ee;
+                                } else
+                                    var ret = str.substring(0, digits) + ee;
+                                for (var i = 0; i < ret.length; i++)
+                                    if (ret.charAt(i) > "0" && ret.charAt(i) <= "9")
+                                        return ret;
+                                return str;
+                            }
+                            return str;
+                        }
+
+                        function compute(obj, val, data) {
+                            if (obj[val].value) {
+                                var uval = 0;
+                                uval = obj[val].value * data[val];
+                                if ((uval >= 0) && (obj[val].value.indexOf("-") != -1)) {
+                                    uval = -uval;
+                                }
+                                for (var i in data)
+                                    obj[i].value = normalize(uval / data[i], 8);
+                            }
+                        }
+
+                        function resetValues(form, data) {
+                            for (var i in data)
+                                form[i].value = "";
+                        }
+
+                        function resetAll(form) {
+                            resetValues(form, heat_data);
+                        }
+                    </script>
+                    <div class="toolbox">
+                        <form action="">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td colspan=4 class="tname"><b>能 量 换 算</b></td>
+                                    </tr>
+                                    <tr>
+                                        <td>焦耳(J)</td>
+                                        <td><input name=Joule size="12"> <input onClick="if (checkNum(Joule.value)) compute(this.form,Joule.name,heat_data)" type=button value="换算" name=Joule_bt></td>
+                                        <td>公斤·米(kg·m)</td>
+                                        <td><input name=Kgm size="12"> <input onClick="if (checkNum(Kgm.value)) compute(this.form,Kgm.name,heat_data)" type=button value="换算" name=Kgm_bt></td>
+                                    </tr>
+                                    <tr>
+                                        <td>米制马力·时<br />(PS·h)</td>
+                                        <td><input name=Psh size="12"> <input onClick="if (checkNum(Psh.value)) compute(this.form,Psh.name,heat_data)" type=button value="换算" name=Psh_bt></td>
+                                        <td>英制马力·时<br />(HP·h)</td>
+                                        <td><input name=Hph size="12"> <input onClick="if (checkNum(Hph.value)) compute(this.form,Hph.name,heat_data)" type=button value="换算" name=Hph_bt></td>
+                                    </tr>
+                                    <tr>
+                                        <td>千瓦·时(kW·h)</td>
+                                        <td><input name=Kwh size="12"> <input onClick="if (checkNum(Kwh.value)) compute(this.form,Kwh.name,heat_data)" type=button value="换算" name=Kwh_bt></td>
+                                        <td>千卡(kcal)</td>
+                                        <td><input name=Kcal size="12"> <input onClick="if (checkNum(Kcal.value)) compute(this.form,Kcal.name,heat_data)" type=button value="换算" name=Kcal_bt></td>
+                                    </tr>
+                                    <tr>
+                                        <td>英热单位(Btu)</td>
+                                        <td><input name=Btu size="12"> <input onClick="if (checkNum(Btu.value)) compute(this.form,Btu.name,heat_data)" type=button value="换算" name=Btu_bt></td>
+                                        <td>英尺·磅(ft·lb)</td>
+                                        <td><input name=Ftlb size="12"> <input onClick="if (checkNum(Ftlb.value)) compute(this.form,Ftlb.name,heat_data)" type=button value="换算" name=Ftlb_bt></td>
+                                    </tr>
+                                    <tr>
+                                        <TD colSpan=4>
+                                            <INPUT onclick=resetAll(this.form) type=button value=数据重置 name=res7>
+                                        </TD>
+                                    </TR>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <p><a style="text-decoration: none;color: #000" href="http://loveconvert.com" target="_blank">友情链接：Loveconvert</a></p>
+        </div>
+    </div>
+</body>
+
+</html>
