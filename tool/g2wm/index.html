@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>q2wm</title>
+	<script src="jquery.min.js"></script>
+	<script src="jquery.qrcode.min.js"></script>
+	<style>
+		textarea {
+			display: block;
+			outline: none;
+			min-width:300px;
+			min-height: 100px;
+			max-width: 500px;
+			max-height: 300px;
+			font-size: 20px;
+			padding: 5px;
+			box-sizing: border-box;
+		}
+		button {
+			width: 100px;
+			height: 30px;
+			background: #fff;
+			border: 1px solid #999;
+			outline: none;
+			margin-top: 5px;
+			cursor: pointer;
+		}
+		button:active {
+			background: #ddd;
+		}
+		#result {
+			overflow: hidden;
+			margin-top: 20px;
+		}
+		#ewm {
+			float: left;
+		}
+		#title, #ewms {
+			overflow: hidden;
+		}
+		.t {
+			float: left;
+			width: 300px;
+		}
+		#ewm2, .t2{
+			padding-left: 20px;
+			overflow: hidden;
+		}
+	</style>
+</head>
+<body>
+	<textarea id="content"></textarea>
+	<button onclick="gqrcode()">canvas</button>
+	<button onclick="gqrcode2()">table</button>
+	<div id="result">
+		<div id="title">
+			<div class="t">canvas:</div>
+			<div class="t t2">table:</div>
+		</div>
+		<div id="ewms">
+			<div id="ewm"></div>
+			<div id="ewm2"></div>
+		</div>
+	</div>
+	<script>
+		function gqrcode(){
+			console.time();
+			var c = $("#content").val();
+			$("#ewm").text("");
+			jQuery('#ewm').qrcode({
+	            render: "canvas",
+	            width: 300,
+	            height: 300,
+	            text: c
+        	});
+        	console.timeEnd();
+		}
+		function gqrcode2(){
+			console.time();
+			var c = $("#content").val();
+        	$("#ewm2").text("");
+			jQuery('#ewm2').qrcode({
+	            render: "table",
+	            width: 300,
+	            height: 300,
+	            text: c
+        	});
+        	console.timeEnd();
+		}
+	</script>
+</body>
+</html>

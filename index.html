@@ -48,7 +48,7 @@
         <div class="xh-item" onclick="openUrl('http://www.jianshu.com/u/c10d622d16a2')">小胡简书</div>
         <div class="xh-item" onclick="openUrl('https://space.bilibili.com/13496908')">小胡BiliBili</div>
         <div class="xh-item" onclick="openUrl('https://github.com/garuhester')">小胡Github</div>
-        <div class="xh-item" onclick="openUrl('http://hlz.space/nav.html')">小胡工具导航</div>
+        <div class="xh-item" onclick="openUrl('http://hlz.space/tool-website/cn')">小胡工具导航</div>
         <div class="xh-item" onclick="openUrl('http://hlz.space/website/cn')">网址导航</div>
         <div class="xh-menu"><img src="./images/menu.png" alt=""></div>
     </div>
@@ -59,7 +59,7 @@
         <div class="xh-item" onclick="openUrl('http://www.jianshu.com/u/c10d622d16a2')">小胡简书</div>
         <div class="xh-item" onclick="openUrl('https://space.bilibili.com/13496908')">小胡BiliBili</div>
         <div class="xh-item" onclick="openUrl('https://github.com/garuhester')">小胡Github</div>
-        <div class="xh-item" onclick="openUrl('http://hlz.space/nav.html')">小胡工具导航</div>
+        <div class="xh-item" onclick="openUrl('http://hlz.space/tool-website/cn')">小胡工具导航</div>
         <div class="xh-item" onclick="openUrl('http://hlz.space/website/cn')">网址导航</div>
     </div>
     <!--FRONT PAGE/ SPLASH SCREEN SECTION-->
@@ -313,6 +313,7 @@
                                 <li class="button is-checked" data-filter="*">全部</li>
                                 <li class="button" data-filter=".photography">公众号</li>
                                 <li class="button" data-filter=".commercial">网站</li>
+                                <li class="button" data-filter=".other">其他</li>
                                 <!-- <li class="button" data-filter=".potrait">分类3</li> -->
                             </ul>
                             <!--/.button-group filters-button-group-->
@@ -345,6 +346,19 @@
                                                 <!--PORTFOLIO INDIVIDAUAL ITEM TITLE-->
                                                 <a role="button" class="info" data-toggle="modal"
                                                     data-target="#myModal2">详情</a>
+                                                <!--PORTFOLIO INDIVIDAUAL ITEM MODAL LINK BY 'data-target'-->
+                                            </div>
+                                        </li>
+                                        <li class="view view-second other">
+                                            <!--PORTFOLIO INDIVIDAUAL ITEM-->
+                                            <img src="images/hanhua.bmp" alt="guy" />
+                                            <!--PORTFOLIO INDIVIDAUAL ITEM IMAGE-->
+                                            <div class="mask"></div>
+                                            <div class="content">
+                                                <h2>手绘微信表情包</h2>
+                                                <!--PORTFOLIO INDIVIDAUAL ITEM TITLE-->
+                                                <a role="button" class="info" data-toggle="modal"
+                                                    data-target="#myModal3">详情</a>
                                                 <!--PORTFOLIO INDIVIDAUAL ITEM MODAL LINK BY 'data-target'-->
                                             </div>
                                         </li>
@@ -439,7 +453,6 @@
         </div>
         <!-- /.modal-dialog -->
     </div>
-    <!-- /.modal -->
     <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3"
         aria-hidden="true">
         <div class="modal-dialog">
@@ -464,26 +477,32 @@
         </div>
         <!-- /.modal-dialog -->
     </div>
-    <!-- /.modal -->
-    <!-- <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" aria-hidden="true">
+    <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3"
+        aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel4">Hover Style</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel3">手绘微信表情包</h4>
+                    <!--PORTFOLIO IMAGE TITLE-->
                 </div>
                 <div class="modal-body">
-                    <img src="images/folio/illustration.jpg" class="img-responsive" alt="modal-image">
+                    <img src="images/emoji.png" class="img-responsive" alt="modal-image">
+                    <img style="width: 50%;margin: 0 auto;" src="images/hanhua.bmp" class="img-responsive"
+                        alt="modal-image">
+                    <!--PORTFOLIO MODAL IMAGE-->
                 </div>
                 <div class="modal-footer">
                     <div class="mf-content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus ab id unde veniam error et iste ut aspernatur accusantium porro molestiae voluptatibus rem, tempore inventore ad minus soluta praesentium magni?</p>
+                        <p>第一套手绘微信表情包，欢迎大家使用(づ￣ 3￣)づ (扫码添加)</p>
                     </div>
                 </div>
             </div>
+            <!-- /.modal-content -->
         </div>
-    </div> -->
-    <!-- /.modal -->
+        <!-- /.modal-dialog -->
+    </div>
     <!--javascript files
 =============================================================-->
     <script type="text/javascript" src="js/jQueryTween-aio-min.js"></script>
