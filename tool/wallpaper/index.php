@@ -33,7 +33,6 @@
         </li>
         <li onclick="loadData('bing', true);changeTitle(this)">必应美图</li>
         <li onclick="loadData('ciba', true);changeTitle(this)" title="金山词霸每日一句壁纸">每日英语</li>
-        <li><a href="http://www.loveconvert.com" target="_blank">爱转换</a></li>
     </ul>
 </div>
 
